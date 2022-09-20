@@ -1,4 +1,4 @@
-package team2.vinyl_store;
+package team2.vinyl_store.database;
 
 
 import java.sql.Connection;
