@@ -77,6 +77,7 @@ CREATE TABLE orderEntry (
 	orderEntryId int NOT NULL AUTO_INCREMENT,
     orderId int NOT NULL,
     vinylId int NOT NULL,
+    quantity int NOT NULL,
     PRIMARY KEY(orderEntryId),
     FOREIGN KEY (orderId) REFERENCES orderInfo(orderId)
 		ON DELETE CASCADE,
