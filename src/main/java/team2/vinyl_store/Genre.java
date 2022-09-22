@@ -1,7 +1,7 @@
 package team2.vinyl_store;
 
 public class Genre {
-	
+
 	private int genreID;
 	private String name;
 
@@ -19,6 +19,11 @@ public class Genre {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Genre [genreID=" + genreID + ", name=" + name + "]";
 	}
 
 }

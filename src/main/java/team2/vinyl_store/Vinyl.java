@@ -132,4 +132,13 @@ public class Vinyl {
 		this.isArchived = isArchived;
 	}
 
+	@Override
+	public String toString() {
+		return "Vinyl [vinylID=" + vinylID + ", genreID=" + genreID + ", studioID=" + studioID + ", artistID="
+				+ artistID + ", name=" + name + ", description=" + description + ", releaseDate=" + releaseDate
+				+ ", coverArtURL=" + coverArtURL + ", priceCents=" + priceCents + ", runtime=" + runtime
+				+ ", stockQuantity=" + stockQuantity + ", timesOrdered=" + timesOrdered + ", isExplicit=" + isExplicit
+				+ ", isArchived=" + isArchived + "]";
+	}
+
 }

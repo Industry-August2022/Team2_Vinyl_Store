@@ -21,4 +21,9 @@ public class Studio {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Studio [studioID=" + studioID + ", name=" + name + "]";
+	}
+
 }

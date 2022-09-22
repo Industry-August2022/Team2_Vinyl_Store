@@ -9,7 +9,7 @@ public class OrderInfo {
 	private int customerID;
 	private String datePlaced;
 	private Map<Integer, Integer> vinyl;
-	
+
 	public OrderInfo() {
 		vinyl = new HashMap<>();
 	}
@@ -45,9 +45,15 @@ public class OrderInfo {
 	public void addVinyl(int vinyl, int quantity) {
 		this.vinyl.put(vinyl, quantity);
 	}
-	
+
 	public boolean removeVinyl(int vinyl) {
 		return this.vinyl.remove(vinyl) != null;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderInfo [orderID=" + orderID + ", customerID=" + customerID + ", datePlaced=" + datePlaced
+				+ ", vinyl=" + vinyl + "]";
 	}
 
 }

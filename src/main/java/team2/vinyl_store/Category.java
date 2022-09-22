@@ -8,7 +8,7 @@ public class Category {
 	private int categoryID;
 	private String name;
 	private List<Integer> vinyl;
-	
+
 	public Category() {
 		vinyl = new ArrayList<>();
 	}
@@ -39,6 +39,11 @@ public class Category {
 
 	public boolean removeVinyl(int vinyl) {
 		return this.vinyl.remove((Integer) vinyl);
+	}
+
+	@Override
+	public String toString() {
+		return "Category [categoryID=" + categoryID + ", name=" + name + ", vinyl=" + vinyl + "]";
 	}
 
 }
