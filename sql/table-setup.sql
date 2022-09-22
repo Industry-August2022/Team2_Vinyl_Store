@@ -1,23 +1,23 @@
 USE vinyl_store;
 
 CREATE TABLE genre (
-	genreId int NOT NULL AUTO_INCREMENT,
+	genreId int NOT NULL,
     name varchar(32) NOT NULL,
     PRIMARY KEY(genreId)
 );
 CREATE TABLE studio (
-	studioId int NOT NULL AUTO_INCREMENT,
+	studioId int NOT NULL,
     name varchar(32) NOT NULL,
     PRIMARY KEY(studioId)
 );
 CREATE TABLE artist (
-	artistId int NOT NULL AUTO_INCREMENT,
+	artistId int NOT NULL,
     name varchar(32) NOT NULL,
     PRIMARY KEY(artistId)
 );
 
 CREATE TABLE user (
-	userId int NOT NULL AUTO_INCREMENT,
+	userId int NOT NULL,
     address varchar(255) NOT NULL,
     username varchar(16) NOT NULL,
     password varchar(60) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE vinyl (
-	vinylId int NOT NULL AUTO_INCREMENT,
+	vinylId int NOT NULL,
     genreId int NOT NULL,
     studioId int NOT NULL,
     artistId int NOT NULL,
@@ -50,12 +50,12 @@ CREATE TABLE vinyl (
 		ON DELETE CASCADE
 );
 CREATE TABLE category (
-	categoryId int NOT NULL AUTO_INCREMENT,
+	categoryId int NOT NULL,
     name varchar(32) NOT NULL,
     PRIMARY KEY(categoryId)
 );
 CREATE TABLE categoryEntry (
-	categoryEntryId int NOT NULL AUTO_INCREMENT,
+	categoryEntryId int NOT NULL,
 	categoryId int NOT NULL,
 	vinylId int NOT NULL,
     PRIMARY KEY(categoryEntryId),
@@ -66,7 +66,7 @@ CREATE TABLE categoryEntry (
 );
 
 CREATE TABLE orderInfo (
-	orderId int NOT NULL AUTO_INCREMENT,
+	orderId int NOT NULL,
     customerId int NOT NULL,
     datePlaced datetime NOT NULL,
     PRIMARY KEY(orderId),
@@ -74,7 +74,7 @@ CREATE TABLE orderInfo (
 		ON DELETE CASCADE
 );
 CREATE TABLE orderEntry (
-	orderEntryId int NOT NULL AUTO_INCREMENT,
+	orderEntryId int NOT NULL,
     orderId int NOT NULL,
     vinylId int NOT NULL,
     quantity int NOT NULL,
