@@ -5,6 +5,17 @@ public class Studio {
 	private int studioID;
 	private String name;
 
+	public Studio() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Studio(int studioID, String name) {
+		super();
+		this.studioID = studioID;
+		this.name = name;
+	}
+
 	public int getStudioID() {
 		return studioID;
 	}
