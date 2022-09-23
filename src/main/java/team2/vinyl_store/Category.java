@@ -13,6 +13,12 @@ public class Category {
 		vinyl = new ArrayList<>();
 	}
 
+	public Category(int categoryID, String name) {
+		this.categoryID = categoryID;
+		this.name = name;
+		this.vinyl = new ArrayList<>();
+	}
+
 	public int getCategoryID() {
 		return categoryID;
 	}
