@@ -5,6 +5,12 @@ public class Genre {
 	private int genreID;
 	private String name;
 
+	public Genre(int genreID, String name) {
+		super();
+		this.genreID = genreID;
+		this.name = name;
+	}
+
 	public int getGenreID() {
 		return genreID;
 	}
