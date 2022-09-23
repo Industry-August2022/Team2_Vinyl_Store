@@ -61,8 +61,8 @@ class StudioDAOTests {
 
 	@Test
 	void selectID() {
-		Category all = CategoryDAO.DAO.selectID(1);
-		System.out.println(all);
+		Studio studio = StudioDAO.DAO.selectID(1);
+		System.out.println(studio);
 	}
 
 	@Test

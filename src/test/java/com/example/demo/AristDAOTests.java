@@ -61,8 +61,8 @@ class AristDAOTests {
 
 	@Test
 	void selectID() {
-		Category all = CategoryDAO.DAO.selectID(1);
-		System.out.println(all);
+		Artist artist = ArtistDAO.DAO.selectID(1);
+		System.out.println(artist);
 	}
 
 	@Test

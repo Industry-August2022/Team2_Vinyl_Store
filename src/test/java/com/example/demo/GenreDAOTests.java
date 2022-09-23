@@ -11,11 +11,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import team2.vinyl_store.Category;
 import team2.vinyl_store.Genre;
-import team2.vinyl_store.database.GenreDAO;
-import team2.vinyl_store.database.CategoryDAO;
 import team2.vinyl_store.database.DatabaseDAO;
+import team2.vinyl_store.database.GenreDAO;
 
 class GenreDAOTests {
 
@@ -59,8 +57,8 @@ class GenreDAOTests {
 
 	@Test
 	void selectID() {
-		Category all = CategoryDAO.DAO.selectID(1);
-		System.out.println(all);
+		Genre genre = GenreDAO.DAO.selectID(1);
+		System.out.println(genre);
 	}
 
 	@Test
