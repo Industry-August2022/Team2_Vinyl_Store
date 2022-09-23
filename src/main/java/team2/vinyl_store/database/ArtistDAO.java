@@ -11,10 +11,11 @@ import java.util.List;
 import team2.vinyl_store.Artist;
 
 public class ArtistDAO implements DatabaseDAO<Artist> {
-	
+
 	public static final ArtistDAO DAO = new ArtistDAO();
-	
-	private ArtistDAO() {}
+
+	private ArtistDAO() {
+	}
 
 	@Override
 	public boolean insert(Artist v) {
