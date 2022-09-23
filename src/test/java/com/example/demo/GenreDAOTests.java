@@ -11,8 +11,10 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import team2.vinyl_store.Category;
 import team2.vinyl_store.Genre;
 import team2.vinyl_store.database.GenreDAO;
+import team2.vinyl_store.database.CategoryDAO;
 import team2.vinyl_store.database.DatabaseDAO;
 
 class GenreDAOTests {
@@ -53,6 +55,12 @@ class GenreDAOTests {
 			fail("failed to insert3");
 		if (!GenreDAO.DAO.insert(genre4))
 			fail("failed to insert4");
+	}
+
+	@Test
+	void selectID() {
+		Category all = CategoryDAO.DAO.selectID(1);
+		System.out.println(all);
 	}
 
 	@Test
