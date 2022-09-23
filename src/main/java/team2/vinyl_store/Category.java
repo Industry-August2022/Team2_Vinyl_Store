@@ -19,6 +19,12 @@ public class Category {
 		this.vinyl = new ArrayList<>();
 	}
 
+	public Category(int categoryID, String name, List<Integer> vinyl) {
+		this.categoryID = categoryID;
+		this.name = name;
+		this.vinyl = vinyl;
+	}
+
 	public int getCategoryID() {
 		return categoryID;
 	}

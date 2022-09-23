@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
@@ -86,8 +88,9 @@ class CategoryDAOTests {
 
 	@Test
 	void selectID() {
-		Category all = CategoryDAO.DAO.selectID(1);
-		System.out.println(all);
+		Category category = CategoryDAO.DAO.selectID(1);
+		System.out.println(category);
+		assertEquals(1, category.getVinyl().size());
 	}
 
 	@Test
@@ -95,20 +98,20 @@ class CategoryDAOTests {
 		List<Category> all = CategoryDAO.DAO.selectAll();
 		for (Category a : all)
 			System.out.println(a);
+		assertEquals(1, all.get(0).getVinyl().size());
+		assertEquals(0, all.get(1).getVinyl().size());
 	}
 
 	@Test
 	void deleteBestSelling() {
 		Category category = new Category(1, "Best Selling");
-		if (!CategoryDAO.DAO.delete(category))
-			fail("failed to delete");
+		assertTrue(CategoryDAO.DAO.delete(category));
 	}
 
 	@Test
 	void updateKidsHits() {
 		Category category = new Category(2, "Kids Hits");
-		if (!CategoryDAO.DAO.update(category))
-			fail("failed to update");
+		assertTrue(CategoryDAO.DAO.update(category));
 	}
 
 }

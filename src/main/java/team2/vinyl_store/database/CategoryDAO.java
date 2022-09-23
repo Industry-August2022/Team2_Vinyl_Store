@@ -50,7 +50,7 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 			stmt.setString(2, v.getName());
 			stmt.executeUpdate();
 			stmt.close();
-			insertCategoryEntries(v);
+			insertCategoryEntries(conn, v);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,13 +58,9 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 		return false;
 	}
 
-	private boolean insertCategoryEntries(Category v) {
+	private boolean insertCategoryEntries(Connection conn, Category v) {
 		String sql = "INSERT INTO categoryEntry(categoryEntryID,categoryID,vinylID) VALUES (?,?,?)";
-		Connection conn;
 		try {
-			conn = DriverManager.getConnection(DatabaseDAO.DBURL, DatabaseDAO.USER, DatabaseDAO.PASS);
-			if (conn == null)
-				return false;
 			for (Integer vinylID : v.getVinyl()) {
 				int nextID = getMaxEntryID();
 				PreparedStatement stmt = conn.prepareStatement(sql);
@@ -103,13 +99,13 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 
 	@Override
 	public boolean delete(Category v) {
-		if (!deleteCategoryEntries(v))
-			return false;
 		String sql = "DELETE FROM category WHERE categoryID = ?";
 		Connection conn;
 		try {
 			conn = DriverManager.getConnection(DatabaseDAO.DBURL, DatabaseDAO.USER, DatabaseDAO.PASS);
 			if (conn == null)
+				return false;
+			if (!deleteCategoryEntries(conn, v))
 				return false;
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, v.getCategoryID());
@@ -122,13 +118,9 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 		return false;
 	}
 
-	private boolean deleteCategoryEntries(Category v) {
+	private boolean deleteCategoryEntries(Connection conn, Category v) {
 		String sql = "DELETE FROM categoryEntry WHERE categoryID = ?";
-		Connection conn;
 		try {
-			conn = DriverManager.getConnection(DatabaseDAO.DBURL, DatabaseDAO.USER, DatabaseDAO.PASS);
-			if (conn == null)
-				return false;
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, v.getCategoryID());
 			stmt.executeUpdate();
@@ -151,9 +143,31 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 			stmt.execute();
+			
 			ResultSet rs = stmt.getResultSet();
 			rs.next();
-			Category ret = new Category(rs.getInt(1), rs.getString(2));
+			List<Integer> vinyl = getCategoryEntries(conn, id);
+			Category ret = new Category(rs.getInt(1), rs.getString(2), vinyl);
+			
+			stmt.close();
+			return ret;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	private List<Integer> getCategoryEntries(Connection conn, int categoryID) {
+		String sql = "SELECT vinylID FROM categoryEntry WHERE categoryID = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, categoryID);
+			stmt.execute();
+			
+			ResultSet rs = stmt.getResultSet();
+			List<Integer> ret = new ArrayList<>();
+			while(rs.next())
+				ret.add(rs.getInt(1));
 			stmt.close();
 			return ret;
 		} catch (SQLException e) {
@@ -176,7 +190,9 @@ public class CategoryDAO implements DatabaseDAO<Category> {
 
 			List<Category> ret = new ArrayList<>();
 			while (rs.next()) {
-				ret.add(new Category(rs.getInt(1), rs.getString(2)));
+				int categoryID = rs.getInt(1);
+				List<Integer> vinyl = getCategoryEntries(conn, categoryID);
+				ret.add(new Category(categoryID, rs.getString(2), vinyl));
 			}
 			stmt.close();
 			return ret;
