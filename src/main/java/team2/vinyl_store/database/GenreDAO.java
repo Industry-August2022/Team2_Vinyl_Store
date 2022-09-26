@@ -88,6 +88,7 @@ public class GenreDAO implements DatabaseDAO<Genre> {
 			stmt.setInt(1, id);
 			stmt.execute();
 			ResultSet rs = stmt.getResultSet();
+			rs.next();
 			Genre ret = new Genre(rs.getInt(1), rs.getString(2));
 			stmt.close();
 			return ret;

@@ -89,6 +89,7 @@ public class StudioDAO implements DatabaseDAO<Studio> {
 			stmt.setInt(1, id);
 			stmt.execute();
 			ResultSet rs = stmt.getResultSet();
+			rs.next();
 			Studio ret = new Studio(rs.getInt(1), rs.getString(2));
 			stmt.close();
 			return ret;

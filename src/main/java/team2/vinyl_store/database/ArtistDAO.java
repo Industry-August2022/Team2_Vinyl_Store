@@ -88,6 +88,7 @@ public class ArtistDAO implements DatabaseDAO<Artist> {
 			stmt.setInt(1, id);
 			stmt.execute();
 			ResultSet rs = stmt.getResultSet();
+			rs.next();
 			Artist ret = new Artist(rs.getInt(1), rs.getString(2));
 			stmt.close();
 			return ret;
