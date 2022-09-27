@@ -11,9 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import team2.vinyl_store.Category;
 import team2.vinyl_store.Studio;
-import team2.vinyl_store.database.CategoryDAO;
 import team2.vinyl_store.database.DatabaseDAO;
 import team2.vinyl_store.database.StudioDAO;
 
@@ -48,15 +46,15 @@ class StudioDAOTests {
 
 	@Test
 	void insertStudios() {
-		Studio studio2 = new Studio(6, "studio6");
-		Studio studio3 = new Studio(7, "studio7");
-		Studio studio4 = new Studio(8, "studio8");
-		if (!StudioDAO.DAO.insert(studio2))
-			fail("failed to insert2");
-		if (!StudioDAO.DAO.insert(studio3))
-			fail("failed to insert3");
-		if (!StudioDAO.DAO.insert(studio4))
-			fail("failed to insert4");
+		Studio studio6 = new Studio(6, "studio6");
+		Studio studio7 = new Studio(7, "studio7");
+		Studio studio8 = new Studio(8, "studio8");
+		if (!StudioDAO.DAO.insert(studio6))
+			fail("failed to insert6");
+		if (!StudioDAO.DAO.insert(studio7))
+			fail("failed to insert7");
+		if (!StudioDAO.DAO.insert(studio8))
+			fail("failed to insert8");
 	}
 
 	@Test

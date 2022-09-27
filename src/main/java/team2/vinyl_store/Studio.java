@@ -6,8 +6,6 @@ public class Studio {
 	private String name;
 
 	public Studio() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Studio(int studioID, String name) {

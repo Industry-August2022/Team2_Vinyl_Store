@@ -1,24 +1,46 @@
 package team2.vinyl_store;
 
 public class Vinyl {
-
+	
 	private int vinylID;
-
 	private int genreID;
 	private int studioID;
 	private int artistID;
-
-	private String name;
+	private String title;
 	private String description;
 	private String releaseDate;
-	private String coverArtURL;
 	private int priceCents;
+	private String coverArtURL;
 	private int runtime;
 	private int stockQuantity;
 	private int timesOrdered;
-
 	private boolean isExplicit;
 	private boolean isArchived;
+	
+	public Vinyl() {
+	}
+
+
+	public Vinyl(int vinylID, int genreID, int studioID, int artistID, String title, String description,
+			String releaseDate, int priceCents, String coverArtURL, int runtime, int stockQuantity, int timesOrdered,
+			boolean isExplicit, boolean isArchived) {
+		super();
+		this.vinylID = vinylID;
+		this.genreID = genreID;
+		this.studioID = studioID;
+		this.artistID = artistID;
+		this.title = title;
+		this.description = description;
+		this.releaseDate = releaseDate;
+		this.priceCents = priceCents;
+		this.coverArtURL = coverArtURL;
+		this.runtime = runtime;
+		this.stockQuantity = stockQuantity;
+		this.timesOrdered = timesOrdered;
+		this.isExplicit = isExplicit;
+		this.isArchived = isArchived;
+	}
+
 
 	public int getVinylID() {
 		return vinylID;
@@ -52,12 +74,12 @@ public class Vinyl {
 		this.artistID = artistID;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String name) {
+		this.title = name;
 	}
 
 	public String getDescription() {
@@ -135,7 +157,7 @@ public class Vinyl {
 	@Override
 	public String toString() {
 		return "Vinyl [vinylID=" + vinylID + ", genreID=" + genreID + ", studioID=" + studioID + ", artistID="
-				+ artistID + ", name=" + name + ", description=" + description + ", releaseDate=" + releaseDate
+				+ artistID + ", name=" + title + ", description=" + description + ", releaseDate=" + releaseDate
 				+ ", coverArtURL=" + coverArtURL + ", priceCents=" + priceCents + ", runtime=" + runtime
 				+ ", stockQuantity=" + stockQuantity + ", timesOrdered=" + timesOrdered + ", isExplicit=" + isExplicit
 				+ ", isArchived=" + isArchived + "]";
