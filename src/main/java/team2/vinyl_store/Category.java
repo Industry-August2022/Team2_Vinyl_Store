@@ -3,34 +3,48 @@ package team2.vinyl_store;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class Category {
 
-	private int categoryID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int categoryId;
 	private String name;
-	private List<Integer> vinyl;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "category_entry", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "vinyl_id"))
+	private List<Vinyl> vinyl;
 
 	public Category() {
 		vinyl = new ArrayList<>();
 	}
 
 	public Category(int categoryID, String name) {
-		this.categoryID = categoryID;
+		this.categoryId = categoryID;
 		this.name = name;
 		this.vinyl = new ArrayList<>();
 	}
 
-	public Category(int categoryID, String name, List<Integer> vinyl) {
-		this.categoryID = categoryID;
+	public Category(int categoryID, String name, List<Vinyl> vinyl) {
+		this.categoryId = categoryID;
 		this.name = name;
 		this.vinyl = vinyl;
 	}
 
 	public int getCategoryID() {
-		return categoryID;
+		return categoryId;
 	}
 
 	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
+		this.categoryId = categoryID;
 	}
 
 	public String getName() {
@@ -41,21 +55,21 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Integer> getVinyl() {
+	public List<Vinyl> getVinyl() {
 		return vinyl;
 	}
 
-	public void addVinyl(int vinyl) {
+	public void addVinyl(Vinyl vinyl) {
 		this.vinyl.add(vinyl);
 	}
 
-	public boolean removeVinyl(int vinyl) {
-		return this.vinyl.remove((Integer) vinyl);
+	public boolean removeVinyl(Vinyl vinyl) {
+		return this.vinyl.remove(vinyl);
 	}
 
 	@Override
 	public String toString() {
-		return "Category [categoryID=" + categoryID + ", name=" + name + ", vinyl=" + vinyl + "]";
+		return "Category [categoryID=" + categoryId + ", name=" + name + ", vinyl=" + vinyl + "]";
 	}
 
 }
