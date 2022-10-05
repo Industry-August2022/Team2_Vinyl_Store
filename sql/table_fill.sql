@@ -13,16 +13,19 @@ INSERT INTO genre(genre_id, name) VALUES(2, 'Classic Rock');
 
 INSERT INTO vinyl(vinyl_id, title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES(1, 'Classic Queen', 1, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES(1, 'Classic Queen', 2, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
 INSERT INTO vinyl(vinyl_id, title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES(2, 'Ginger', 1, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES(2, 'Ginger', 1, 1, 2, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
 INSERT INTO vinyl(vinyl_id, title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES(3, 'XXI', 1, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES(3, 'XXI', 1, 1, 4, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
 INSERT INTO vinyl(vinyl_id, title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES(4, 'Nightmare Vacation', 1, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES(4, 'Nightmare Vacation', 1, 1, 3, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+INSERT INTO vinyl(vinyl_id, title, genre_id, studio_id, artist_id, description, release_date, price_cents,
+				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
+				VALUES(5, 'Queen', 2, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
 
 INSERT INTO category(category_id, name) VALUES(1, 'Best Selling');
 INSERT INTO category(category_id, name) VALUES(2, 'Kids Hits');
