@@ -1,22 +1,34 @@
 package team2.vinyl_store;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Genre {
 
-	private int genreID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int genreId;
 	private String name;
 
-	public Genre(int genreID, String name) {
+	public Genre() {
 		super();
-		this.genreID = genreID;
+	}
+
+	public Genre(int genreId, String name) {
+		super();
+		this.genreId = genreId;
 		this.name = name;
 	}
 
 	public int getGenreID() {
-		return genreID;
+		return genreId;
 	}
 
 	public void setGenreID(int genreID) {
-		this.genreID = genreID;
+		this.genreId = genreID;
 	}
 
 	public String getName() {
@@ -29,7 +41,7 @@ public class Genre {
 
 	@Override
 	public String toString() {
-		return "Genre [genreID=" + genreID + ", name=" + name + "]";
+		return "Genre [genreID=" + genreId + ", name=" + name + "]";
 	}
 
 }

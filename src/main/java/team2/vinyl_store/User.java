@@ -1,8 +1,16 @@
 package team2.vinyl_store;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
-	private int userID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
 
 	private String name;
 	private String address;
@@ -12,12 +20,28 @@ public class User {
 
 	private boolean isAdmin;
 
+	public User() {
+		super();
+	}
+
+	public User(int userId, String name, String address, String username, String password, String paymentInfo,
+			boolean isAdmin) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.address = address;
+		this.username = username;
+		this.password = password;
+		this.paymentInfo = paymentInfo;
+		this.isAdmin = isAdmin;
+	}
+
 	public int getUserID() {
-		return userID;
+		return userId;
 	}
 
 	public void setUserID(int userID) {
-		this.userID = userID;
+		this.userId = userID;
 	}
 
 	public String getName() {
@@ -70,7 +94,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userID=" + userID + ", name=" + name + ", address=" + address + ", username=" + username
+		return "User [userID=" + userId + ", name=" + name + ", address=" + address + ", username=" + username
 				+ ", password=" + password + ", paymentInfo=" + paymentInfo + ", isAdmin=" + isAdmin + "]";
 	}
 

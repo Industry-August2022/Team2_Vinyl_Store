@@ -1,25 +1,33 @@
 package team2.vinyl_store;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Studio {
-	
-	private int studioID;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int studioId;
 	private String name;
 
 	public Studio() {
 	}
 
-	public Studio(int studioID, String name) {
+	public Studio(int studioId, String name) {
 		super();
-		this.studioID = studioID;
+		this.studioId = studioId;
 		this.name = name;
 	}
 
 	public int getStudioID() {
-		return studioID;
+		return studioId;
 	}
 
 	public void setStudioID(int studioID) {
-		this.studioID = studioID;
+		this.studioId = studioID;
 	}
 
 	public String getName() {
@@ -32,7 +40,7 @@ public class Studio {
 
 	@Override
 	public String toString() {
-		return "Studio [studioID=" + studioID + ", name=" + name + "]";
+		return "Studio [studioID=" + studioId + ", name=" + name + "]";
 	}
 
 }

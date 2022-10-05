@@ -26,6 +26,7 @@ public class Vinyl {
 	private boolean isArchived;
 
 	public Vinyl() {
+		super();
 	}
 
 	public Vinyl(int vinylId, int genreId, int studioId, int artistId, String title, String description,

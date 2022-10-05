@@ -24,7 +24,8 @@ public class Category {
 	private List<Vinyl> vinyl;
 
 	public Category() {
-		vinyl = new ArrayList<>();
+		super();
+		this.vinyl = new ArrayList<>();
 	}
 
 	public Category(int categoryID, String name) {

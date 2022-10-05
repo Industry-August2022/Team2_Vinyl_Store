@@ -3,31 +3,49 @@ package team2.vinyl_store;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class OrderInfo {
 
-	private int orderID;
-	private int customerID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int orderId;
+	private int customerId;
 	private String datePlaced;
 	private Map<Integer, Integer> vinyl;
 
+
 	public OrderInfo() {
-		vinyl = new HashMap<>();
+		super();
+		this.vinyl = new HashMap<>();
+	}
+
+	public OrderInfo(int orderId, int customerId, String datePlaced, Map<Integer, Integer> vinyl) {
+		super();
+		this.orderId = orderId;
+		this.customerId = customerId;
+		this.datePlaced = datePlaced;
+		this.vinyl = vinyl;
 	}
 
 	public int getOrderID() {
-		return orderID;
+		return orderId;
 	}
 
 	public void setOrderID(int orderID) {
-		this.orderID = orderID;
+		this.orderId = orderID;
 	}
 
 	public int getCustomerID() {
-		return customerID;
+		return customerId;
 	}
 
 	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
+		this.customerId = customerID;
 	}
 
 	public String getDatePlaced() {
@@ -52,7 +70,7 @@ public class OrderInfo {
 
 	@Override
 	public String toString() {
-		return "OrderInfo [orderID=" + orderID + ", customerID=" + customerID + ", datePlaced=" + datePlaced
+		return "OrderInfo [orderID=" + orderId + ", customerID=" + customerId + ", datePlaced=" + datePlaced
 				+ ", vinyl=" + vinyl + "]";
 	}
 
