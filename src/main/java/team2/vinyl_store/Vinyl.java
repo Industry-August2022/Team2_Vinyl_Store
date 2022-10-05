@@ -28,19 +28,19 @@ public class Vinyl {
 	public Vinyl() {
 	}
 
-	public Vinyl(int vinylID, int genreID, int studioID, int artistID, String title, String description,
-			String releaseDate, int priceCents, String coverArtURL, int runtime, int stockQuantity, int timesOrdered,
+	public Vinyl(int vinylId, int genreId, int studioId, int artistId, String title, String description,
+			String releaseDate, int priceCents, String coverArtUrl, int runtime, int stockQuantity, int timesOrdered,
 			boolean isExplicit, boolean isArchived) {
 		super();
-		this.vinylId = vinylID;
-		this.genreId = genreID;
-		this.studioId = studioID;
-		this.artistId = artistID;
+		this.vinylId = vinylId;
+		this.genreId = genreId;
+		this.studioId = studioId;
+		this.artistId = artistId;
 		this.title = title;
 		this.description = description;
 		this.releaseDate = releaseDate;
 		this.priceCents = priceCents;
-		this.coverArtUrl = coverArtURL;
+		this.coverArtUrl = coverArtUrl;
 		this.runtime = runtime;
 		this.stockQuantity = stockQuantity;
 		this.timesOrdered = timesOrdered;
