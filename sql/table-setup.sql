@@ -1,86 +1,86 @@
 USE vinyl_store;
 
 CREATE TABLE genre (
-	genreId int NOT NULL,
+	genre_id int NOT NULL,
     name varchar(32) NOT NULL,
-    PRIMARY KEY(genreId)
+    PRIMARY KEY(genre_id)
 );
 CREATE TABLE studio (
-	studioId int NOT NULL,
+	studio_id int NOT NULL,
     name varchar(32) NOT NULL,
-    PRIMARY KEY(studioId)
+    PRIMARY KEY(studio_id)
 );
 CREATE TABLE artist (
-	artistId int NOT NULL,
+	artist_id int NOT NULL,
     name varchar(32) NOT NULL,
-    PRIMARY KEY(artistId)
+    PRIMARY KEY(artist_id)
 );
 
 CREATE TABLE user (
-	userId int NOT NULL,
+	user_id int NOT NULL,
     address varchar(255) NOT NULL,
     username varchar(16) NOT NULL,
     password varchar(60) NOT NULL,
-    paymentInfo varchar(60) NOT NULL,
-    isAdmin boolean NOT NULL,
-    PRIMARY KEY(userId)
+    payment_info varchar(60) NOT NULL,
+    is_admin boolean NOT NULL,
+    PRIMARY KEY(user_id)
 );
 
 CREATE TABLE vinyl (
-	vinylId int NOT NULL,
-    genreId int NOT NULL,
-    studioId int NOT NULL,
-    artistId int NOT NULL,
+	vinyl_id int NOT NULL,
+    genre_id int NOT NULL,
+    studio_id int NOT NULL,
+    artist_id int NOT NULL,
     title varchar(32) NOT NULL,
     description varchar(255) NOT NULL,
-    releaseDate date NOT NULL,
-    priceCents int NOT NULL,
-    coverArtURL varchar(64),
+    release_date date NOT NULL,
+    price_cents int NOT NULL,
+    cover_art_url varchar(64),
     runtime int NOT NULL,
-    stockQuantity int NOT NULL,
-    timesOrdered int NOT NULL,
-    isExplicit bool NOT NULL,
-    isArchived bool NOT NULL,
-    PRIMARY KEY(vinylId),
-    FOREIGN KEY (genreId) REFERENCES genre(genreId)
+    stock_quantity int NOT NULL,
+    times_ordered int NOT NULL,
+    is_explicit bool NOT NULL,
+    is_archived bool NOT NULL,
+    PRIMARY KEY(vinyl_id),
+    FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 		ON DELETE CASCADE,
-    FOREIGN KEY (studioId) REFERENCES studio(studioId)
+    FOREIGN KEY (studio_id) REFERENCES studio(studio_id)
 		ON DELETE CASCADE,
-    FOREIGN KEY (artistId) REFERENCES artist(artistId)
+    FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
 		ON DELETE CASCADE
 );
 CREATE TABLE category (
-	categoryId int NOT NULL,
+	category_id int NOT NULL,
     name varchar(32) NOT NULL,
-    PRIMARY KEY(categoryId)
+    PRIMARY KEY(category_id)
 );
-CREATE TABLE categoryEntry (
-	categoryEntryId int NOT NULL,
-	categoryId int NOT NULL,
-	vinylId int NOT NULL,
-    PRIMARY KEY(categoryEntryId),
-    FOREIGN KEY (categoryId) REFERENCES category(categoryId)
+CREATE TABLE category_entry (
+	category_entry_id int NOT NULL,
+	category_id int NOT NULL,
+	vinyl_id int NOT NULL,
+    PRIMARY KEY(category_entry_id),
+    FOREIGN KEY (category_id) REFERENCES category(category_id)
 		ON DELETE CASCADE,
-    FOREIGN KEY (vinylId) REFERENCES vinyl(vinylId)
+    FOREIGN KEY (vinyl_id) REFERENCES vinyl(vinyl_id)
 		ON DELETE CASCADE
 );
 
-CREATE TABLE orderInfo (
-	orderId int NOT NULL,
-    customerId int NOT NULL,
-    datePlaced datetime NOT NULL,
-    PRIMARY KEY(orderId),
-    FOREIGN KEY (customerId) REFERENCES user(userId)
+CREATE TABLE order_info (
+	order_id int NOT NULL,
+    customer_id int NOT NULL,
+    date_placed datetime NOT NULL,
+    PRIMARY KEY(order_id),
+    FOREIGN KEY (customer_id) REFERENCES user(user_id)
 		ON DELETE CASCADE
 );
-CREATE TABLE orderEntry (
-	orderEntryId int NOT NULL,
-    orderId int NOT NULL,
-    vinylId int NOT NULL,
+CREATE TABLE order_entry (
+	order_entry_id int NOT NULL,
+    order_id int NOT NULL,
+    vinyl_id int NOT NULL,
     quantity int NOT NULL,
-    PRIMARY KEY(orderEntryId),
-    FOREIGN KEY (orderId) REFERENCES orderInfo(orderId)
+    PRIMARY KEY(order_entry_id),
+    FOREIGN KEY (order_id) REFERENCES order_info(order_id)
 		ON DELETE CASCADE,
-    FOREIGN KEY (vinylId) REFERENCES vinyl(vinylId)
+    FOREIGN KEY (vinyl_id) REFERENCES vinyl(vinyl_id)
 		ON DELETE CASCADE
 );
