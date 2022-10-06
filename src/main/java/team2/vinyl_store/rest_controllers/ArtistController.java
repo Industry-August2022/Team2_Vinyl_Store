@@ -33,7 +33,7 @@ public class ArtistController {
 	}
 	
 	@PostMapping(path="/api/artist")
-	public Artist postNewArtist(@RequestBody Artist newArtist) {
+	public Artist postNew(@RequestBody Artist newArtist) {
 		return artistService.insertArtist(newArtist);
 	}
 
