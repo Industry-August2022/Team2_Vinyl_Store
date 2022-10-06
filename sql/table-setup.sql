@@ -1,23 +1,23 @@
 USE vinyl_store;
 
 CREATE TABLE genre (
-	genre_id int NOT NULL,
+	genre_id int NOT NULL AUTO_INCREMENT,
     name varchar(32) NOT NULL,
     PRIMARY KEY(genre_id)
 );
 CREATE TABLE studio (
-	studio_id int NOT NULL,
+	studio_id int NOT NULL AUTO_INCREMENT,
     name varchar(32) NOT NULL,
     PRIMARY KEY(studio_id)
 );
 CREATE TABLE artist (
-	artist_id int NOT NULL,
+	artist_id int NOT NULL AUTO_INCREMENT,
     name varchar(32) NOT NULL,
     PRIMARY KEY(artist_id)
 );
 
 CREATE TABLE user (
-	user_id int NOT NULL,
+	user_id int NOT NULL AUTO_INCREMENT,
     address varchar(255) NOT NULL,
     username varchar(16) NOT NULL,
     password varchar(60) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE vinyl (
-	vinyl_id int NOT NULL,
+	vinyl_id int NOT NULL AUTO_INCREMENT,
     genre_id int NOT NULL,
     studio_id int NOT NULL,
     artist_id int NOT NULL,
@@ -50,12 +50,12 @@ CREATE TABLE vinyl (
 		ON DELETE CASCADE
 );
 CREATE TABLE category (
-	category_id int NOT NULL,
+	category_id int NOT NULL AUTO_INCREMENT,
     name varchar(32) NOT NULL,
     PRIMARY KEY(category_id)
 );
 CREATE TABLE category_entry (
-	category_entry_id int NOT NULL,
+	category_entry_id int NOT NULL AUTO_INCREMENT,
 	category_id int NOT NULL,
 	vinyl_id int NOT NULL,
     PRIMARY KEY(category_entry_id),
@@ -66,7 +66,7 @@ CREATE TABLE category_entry (
 );
 
 CREATE TABLE order_info (
-	order_info_id int NOT NULL,
+	order_info_id int NOT NULL AUTO_INCREMENT,
     customer_id int NOT NULL,
     date_placed datetime NOT NULL,
     PRIMARY KEY(order_info_id),
@@ -74,12 +74,12 @@ CREATE TABLE order_info (
 		ON DELETE CASCADE
 );
 CREATE TABLE order_entry (
-	order_entry_id int NOT NULL,
+	order_entry_id int NOT NULL AUTO_INCREMENT,
     order_id int NOT NULL,
     vinyl_id int NOT NULL,
     quantity int NOT NULL,
     PRIMARY KEY(order_entry_id),
-    FOREIGN KEY (order_id) REFERENCES order_info(order_id)
+    FOREIGN KEY (order_id) REFERENCES order_info(order_info_id)
 		ON DELETE CASCADE,
     FOREIGN KEY (vinyl_id) REFERENCES vinyl(vinyl_id)
 		ON DELETE CASCADE
