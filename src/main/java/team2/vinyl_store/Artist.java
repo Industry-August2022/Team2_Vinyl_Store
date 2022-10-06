@@ -22,12 +22,12 @@ public class Artist {
 		this.name = name;
 	}
 
-	public int getArtistID() {
+	public int getArtistId() {
 		return artistId;
 	}
 
-	public void setArtistID(int artistID) {
-		this.artistId = artistID;
+	public void setArtistId(int artistId) {
+		this.artistId = artistId;
 	}
 
 	public String getName() {
