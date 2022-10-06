@@ -31,8 +31,8 @@ public class ArtistController {
 	public List<Artist> getAll() {
 		return artistService.getAllArtists();
 	}
-	
-	@PostMapping(path="/api/artist")
+
+	@PostMapping(path = "/api/artist")
 	public Artist postNew(@RequestBody Artist newArtist) {
 		return artistService.insertArtist(newArtist);
 	}
