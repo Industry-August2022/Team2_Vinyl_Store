@@ -28,24 +28,24 @@ public class Category {
 		this.vinyl = new ArrayList<>();
 	}
 
-	public Category(int categoryID, String name) {
-		this.categoryId = categoryID;
+	public Category(int categoryId, String name) {
+		this.categoryId = categoryId;
 		this.name = name;
 		this.vinyl = new ArrayList<>();
 	}
 
-	public Category(int categoryID, String name, List<Vinyl> vinyl) {
-		this.categoryId = categoryID;
+	public Category(int categoryId, String name, List<Vinyl> vinyl) {
+		this.categoryId = categoryId;
 		this.name = name;
 		this.vinyl = vinyl;
 	}
 
-	public int getCategoryID() {
+	public int getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryID(int categoryID) {
-		this.categoryId = categoryID;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getName() {
@@ -70,7 +70,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [categoryID=" + categoryId + ", name=" + name + ", vinyl=" + vinyl + "]";
+		return "Category [categoryId=" + categoryId + ", name=" + name + ", vinyl=" + vinyl + "]";
 	}
 
 }

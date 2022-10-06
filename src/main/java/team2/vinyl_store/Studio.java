@@ -22,12 +22,12 @@ public class Studio {
 		this.name = name;
 	}
 
-	public int getStudioID() {
+	public int getStudioId() {
 		return studioId;
 	}
 
-	public void setStudioID(int studioID) {
-		this.studioId = studioID;
+	public void setStudioId(int studioId) {
+		this.studioId = studioId;
 	}
 
 	public String getName() {
@@ -40,7 +40,7 @@ public class Studio {
 
 	@Override
 	public String toString() {
-		return "Studio [studioID=" + studioId + ", name=" + name + "]";
+		return "Studio [studioId=" + studioId + ", name=" + name + "]";
 	}
 
 }

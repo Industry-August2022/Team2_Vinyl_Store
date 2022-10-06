@@ -40,7 +40,7 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return "Artist [artistID=" + artistId + ", name=" + name + "]";
+		return "Artist [artistId=" + artistId + ", name=" + name + "]";
 	}
 
 }

@@ -49,36 +49,36 @@ public class Vinyl {
 		this.isArchived = isArchived;
 	}
 
-	public int getVinylID() {
+	public int getVinylId() {
 		return vinylId;
 	}
 
-	public void setVinylID(int vinylID) {
-		this.vinylId = vinylID;
+	public void setVinylId(int vinylId) {
+		this.vinylId = vinylId;
 	}
 
-	public int getGenreID() {
+	public int getGenreId() {
 		return genreId;
 	}
 
-	public void setGenreID(int genreID) {
-		this.genreId = genreID;
+	public void setGenreId(int genreId) {
+		this.genreId = genreId;
 	}
 
-	public int getStudioID() {
+	public int getStudioId() {
 		return studioId;
 	}
 
-	public void setStudioID(int studioID) {
-		this.studioId = studioID;
+	public void setStudioId(int studioId) {
+		this.studioId = studioId;
 	}
 
-	public int getArtistID() {
+	public int getArtistId() {
 		return artistId;
 	}
 
-	public void setArtistID(int artistID) {
-		this.artistId = artistID;
+	public void setArtistId(int artistId) {
+		this.artistId = artistId;
 	}
 
 	public String getTitle() {
@@ -105,12 +105,12 @@ public class Vinyl {
 		this.releaseDate = releaseDate;
 	}
 
-	public String getCoverArtURL() {
+	public String getCoverArtUrl() {
 		return coverArtUrl;
 	}
 
-	public void setCoverArtURL(String coverArtURL) {
-		this.coverArtUrl = coverArtURL;
+	public void setCoverArtUrl(String coverArtUrl) {
+		this.coverArtUrl = coverArtUrl;
 	}
 
 	public int getPriceCents() {
@@ -163,9 +163,9 @@ public class Vinyl {
 
 	@Override
 	public String toString() {
-		return "Vinyl [vinylID=" + vinylId + ", genreID=" + genreId + ", studioID=" + studioId + ", artistID="
+		return "Vinyl [vinylId=" + vinylId + ", genreId=" + genreId + ", studioId=" + studioId + ", artist`="
 				+ artistId + ", name=" + title + ", description=" + description + ", releaseDate=" + releaseDate
-				+ ", coverArtURL=" + coverArtUrl + ", priceCents=" + priceCents + ", runtime=" + runtime
+				+ ", coverArtUrl=" + coverArtUrl + ", priceCents=" + priceCents + ", runtime=" + runtime
 				+ ", stockQuantity=" + stockQuantity + ", timesOrdered=" + timesOrdered + ", isExplicit=" + isExplicit
 				+ ", isArchived=" + isArchived + "]";
 	}

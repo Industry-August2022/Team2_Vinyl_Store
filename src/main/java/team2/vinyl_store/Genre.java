@@ -23,12 +23,12 @@ public class Genre {
 		this.name = name;
 	}
 
-	public int getGenreID() {
+	public int getGenreId() {
 		return genreId;
 	}
 
-	public void setGenreID(int genreID) {
-		this.genreId = genreID;
+	public void setGenreId(int genreId) {
+		this.genreId = genreId;
 	}
 
 	public String getName() {
@@ -41,7 +41,7 @@ public class Genre {
 
 	@Override
 	public String toString() {
-		return "Genre [genreID=" + genreId + ", name=" + name + "]";
+		return "Genre [genreId=" + genreId + ", name=" + name + "]";
 	}
 
 }

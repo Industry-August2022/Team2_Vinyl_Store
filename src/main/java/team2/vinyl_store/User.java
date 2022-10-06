@@ -40,8 +40,8 @@ public class User {
 		return userId;
 	}
 
-	public void setUserID(int userID) {
-		this.userId = userID;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getName() {
@@ -94,7 +94,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userID=" + userId + ", name=" + name + ", address=" + address + ", username=" + username
+		return "User [userId=" + userId + ", name=" + name + ", address=" + address + ", username=" + username
 				+ ", password=" + password + ", paymentInfo=" + paymentInfo + ", isAdmin=" + isAdmin + "]";
 	}
 

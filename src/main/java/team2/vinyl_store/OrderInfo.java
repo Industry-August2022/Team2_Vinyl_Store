@@ -33,20 +33,20 @@ public class OrderInfo {
 		this.orderEntries = orderEntries;
 	}
 
-	public int getOrderID() {
+	public int getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderID(int orderID) {
-		this.orderId = orderID;
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
 
-	public int getCustomerID() {
+	public int getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerID(int customerID) {
-		this.customerId = customerID;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getDatePlaced() {
