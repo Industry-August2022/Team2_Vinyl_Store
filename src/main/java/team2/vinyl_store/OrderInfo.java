@@ -1,12 +1,13 @@
 package team2.vinyl_store;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class OrderInfo {
@@ -16,20 +17,20 @@ public class OrderInfo {
 	private int orderId;
 	private int customerId;
 	private String datePlaced;
-	private Map<Integer, Integer> vinyl;
-
+	@OneToMany(mappedBy = "orderId")
+	private List<OrderEntry> orderEntries;
 
 	public OrderInfo() {
 		super();
-		this.vinyl = new HashMap<>();
+		this.orderEntries = new ArrayList<>();
 	}
 
-	public OrderInfo(int orderId, int customerId, String datePlaced, Map<Integer, Integer> vinyl) {
+	public OrderInfo(int orderId, int customerId, String datePlaced, List<OrderEntry> orderEntries) {
 		super();
 		this.orderId = orderId;
 		this.customerId = customerId;
 		this.datePlaced = datePlaced;
-		this.vinyl = vinyl;
+		this.orderEntries = orderEntries;
 	}
 
 	public int getOrderID() {
@@ -56,22 +57,31 @@ public class OrderInfo {
 		this.datePlaced = datePlaced;
 	}
 
-	public Map<Integer, Integer> getVinyl() {
-		return vinyl;
+	public List<OrderEntry> getOrderEntries() {
+		return orderEntries;
 	}
 
 	public void addVinyl(int vinyl, int quantity) {
-		this.vinyl.put(vinyl, quantity);
+		boolean added = false;
+		for (OrderEntry entry : this.orderEntries)
+			if (entry.getVinyl() == vinyl) {
+				entry.setQuantity(entry.getQuantity() + quantity);
+				added = true;
+			}
+		if (!added)
+			this.orderEntries.add(new OrderEntry(0, this.orderId, vinyl, quantity));
+
 	}
 
-	public boolean removeVinyl(int vinyl) {
-		return this.vinyl.remove(vinyl) != null;
+	@SuppressWarnings("unlikely-arg-type")
+	public boolean removeVinyl(Vinyl vinyl) {
+		return this.orderEntries.remove(vinyl);
 	}
 
 	@Override
 	public String toString() {
-		return "OrderInfo [orderID=" + orderId + ", customerID=" + customerId + ", datePlaced=" + datePlaced
-				+ ", vinyl=" + vinyl + "]";
+		return "OrderInfo [orderId=" + orderId + ", customerId=" + customerId + ", datePlaced=" + datePlaced
+				+ ", orderEntries=" + orderEntries + "]";
 	}
 
 }
