@@ -13,6 +13,7 @@ body {
 	float: left;
     margin: auto;
 }
+
 .dividing-line {
     width: 80%;
     margin: 10px auto;
@@ -42,72 +43,7 @@ body {
     background-color: #cccccc;
 }
 
-header {
-    background-color: #cfcfcf;
-    height: 148px;
-    margin: auto;
-    border-radius: 15px;
-}
-.logo-wrapper {
-    border-radius: 26px;
-    float: left;
-    margin: 10px auto;
-    width: 17%;
-}
-.logo {
-    border-radius: 26px;
-    margin: auto;
-    margin-left: 20px;
-    width: 242px;
-}
-.top-left-nav {
-    margin: 55px auto;
-    width: 20%;
-    float: left;
-    text-align: center;
-}
-.top-left-nav a {
-    color: #000000;
-    width: 60px;
-    margin: 20px 10px;
-    font-size: 1.5em;
-}
-header a:hover {
-    opacity: 65%;
-    color: #4a5153;
-}
-.search {
-    width: 50%;
-	float: left;
-    margin: auto;
-    margin-top: 55px;
-}
-#search-bar input {
-    width: 86%;
-    height: 32px;
-    border: none;
-    border-radius: 14px;
-    margin-right: 5px;
-	padding-left: 15px;
-}
-#search-bar button {
-    border: none;
-    border-radius: 10px;
-    padding: 5px 8px;
-    cursor: pointer;
-}
-.top-right-nav {
-    margin: 55px auto;
-    width: 11%;
-	float: left;
-    text-align: right;
-}
-.top-right-nav a {
-    color: #000000;
-    width: 60px;
-    margin: 20px 10px;
-    font-size: 1.5em;
-}
+
 
 #best-sellers {
     margin-top: 20px;

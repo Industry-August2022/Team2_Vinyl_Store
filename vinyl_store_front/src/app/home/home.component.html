@@ -7,23 +7,43 @@
 	</head>
     <body>
         <header>
-            <div class="logo-wrapper">
-                <a href="#"><img class="logo" src="/assets/images/logo.png" height="128px" width="242px" alt="Vinyl Store Logo"></a>
-            </div>
-            <div class="top-left-nav">
-                <a href="#" class="no-dec">Categories</a>
-                <a href="#" class="no-dec">Genres</a>
-            </div>
-            <div class="search">
-                <form id="search-bar">
-                    <input type="text">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-            <div class="top-right-nav">
-                <a href="#" class="no-dec">Login</a>
-                <a href="#" class="no-dec">Cart</a>
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#" style="padding-right: 150px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control mr-sm-2" placeholder="Search for..." style="padding-right: 15px;">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
+                        </div>
+                  </form>
+                </div>
+              </nav>
         </header>
         <div id="best-sellers">
             <h1>Best Selling Vinyl</h1>
@@ -102,4 +122,5 @@
             </div>
         </div> <!-- genre-display -->
     </body>
+    
 </html>
