@@ -30,7 +30,7 @@ public class ArtistService {
 		return artistRepository.save(artist);
 	}
 
-	public List<Artist> getAllCategories() {
+	public List<Artist> getAllArtists() {
 		return artistRepository.findAll();
 	}
 

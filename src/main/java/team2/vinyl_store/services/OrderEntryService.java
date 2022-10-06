@@ -30,7 +30,7 @@ public class OrderEntryService {
 		return orderEntryRepository.save(orderEntry);
 	}
 
-	public List<OrderEntry> getAllCategories() {
+	public List<OrderEntry> getAllOrderEntries() {
 		return orderEntryRepository.findAll();
 	}
 

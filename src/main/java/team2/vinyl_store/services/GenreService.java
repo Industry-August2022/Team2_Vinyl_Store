@@ -30,7 +30,7 @@ public class GenreService {
 		return genreRepository.save(genre);
 	}
 
-	public List<Genre> getAllCategories() {
+	public List<Genre> getAllGenres() {
 		return genreRepository.findAll();
 	}
 

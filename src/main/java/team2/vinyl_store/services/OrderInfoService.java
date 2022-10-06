@@ -30,7 +30,7 @@ public class OrderInfoService {
 		return orderInfoRepository.save(orderInfo);
 	}
 
-	public List<OrderInfo> getAllCategories() {
+	public List<OrderInfo> getAllOrderInfos() {
 		return orderInfoRepository.findAll();
 	}
 
