@@ -102,7 +102,7 @@ body {
     border-color: #ff0000;
     margin: auto;
     width: 20px;
-    height: 20px;
+    height: 25px;
 }
 .explicit.hidden {
     display: none;
