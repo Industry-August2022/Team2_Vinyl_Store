@@ -32,9 +32,24 @@ INSERT INTO category(name) VALUES('Kids Hits');
 
 INSERT INTO category_entry(category_id, vinyl_id) VALUES (1, 1);
 
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("123 Fake St, Atlanta, GA 30309", "fake.email@example.com", "hashedpassword1", "CARD INFO", false);
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("42 Hilda Blvd, Atlanta, GA 30309", "hilda@example.com", "hashedpassword1", "CARD INFO", false);
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("Myles Address, Atlanta, GA 30309", "myles@example.com", "hashedpassword1", "CARD INFO", true);
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("Destiny Address, Atlanta, GA 30309", "destiny@example.com", "hashedpassword1", "CARD INFO", true);
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("Amadou Address, Atlanta, GA 30309", "amadou@example.com", "hashedpassword1", "CARD INFO", true);
+INSERT INTO user(address, username, password, payment_info, is_admin) VALUES ("Bruce Address, Atlanta, GA 30309", "bruce@example.com", "hashedpassword1", "CARD INFO", true);
+
 INSERT INTO order_info(customer_id, date_placed) VALUES (1, CURRENT_DATE());
 INSERT INTO order_info(customer_id, date_placed) VALUES (1, CURRENT_DATE());
 INSERT INTO order_info(customer_id, date_placed) VALUES (1, CURRENT_DATE());
 
 INSERT INTO order_entry(order_id, vinyl_id, quantity) VALUES (1, 1, 5);
 INSERT INTO order_entry(order_id, vinyl_id, quantity) VALUES (1, 2, 1);
+
+INSERT INTO cart(customer_id) VALUES (1);
+INSERT INTO cart_content(cart_id, vinyl_id, quantity) VALUES (1, 1, 5);
+INSERT INTO cart_content(cart_id, vinyl_id, quantity) VALUES (1, 2, 3);
+
+INSERT INTO cart(customer_id) VALUES (3);
+INSERT INTO cart_content(cart_id, vinyl_id, quantity) VALUES (2, 1, 50);
+

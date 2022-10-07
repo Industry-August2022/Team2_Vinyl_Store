@@ -1,3 +1,4 @@
+CREATE DATABASE vinyl_store;
 USE vinyl_store;
 
 CREATE TABLE genre (
@@ -19,7 +20,7 @@ CREATE TABLE artist (
 CREATE TABLE user (
 	user_id int NOT NULL AUTO_INCREMENT,
     address varchar(255) NOT NULL,
-    username varchar(16) NOT NULL,
+    username varchar(64) NOT NULL,
     password varchar(60) NOT NULL,
     payment_info varchar(60) NOT NULL,
     is_admin boolean NOT NULL,
@@ -84,6 +85,26 @@ CREATE TABLE order_entry (
     FOREIGN KEY (vinyl_id) REFERENCES vinyl(vinyl_id)
 		ON DELETE CASCADE
 );
+
+CREATE TABLE cart (
+	cart_id int NOT NULL AUTO_INCREMENT,
+    customer_id int NOT NULL,
+    PRIMARY KEY(cart_id),
+    FOREIGN KEY (customer_id) REFERENCES user(user_id)
+		ON DELETE CASCADE
+);
+CREATE TABLE cart_content (
+	cart_content_id int NOT NULL AUTO_INCREMENT,
+    cart_id int NOT NULL,
+    vinyl_id int NOT NULL,
+    quantity int NOT NULL,
+    PRIMARY KEY(cart_content_id),
+    FOREIGN KEY (cart_id) REFERENCES cart(cart_id)
+		ON DELETE CASCADE,
+	FOREIGN KEY (vinyl_id) REFERENCES vinyl(vinyl_id)
+		ON DELETE CASCADE
+);
+    
 
 CREATE TABLE SPRING_SESSION (
   PRIMARY_ID CHAR(36) NOT NULL,
