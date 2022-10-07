@@ -14,7 +14,7 @@ public class OrderInfo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int orderId;
+	private int orderInfoId;
 	private int customerId;
 	private String datePlaced;
 	@OneToMany(mappedBy = "orderId")
@@ -25,20 +25,20 @@ public class OrderInfo {
 		this.orderEntries = new ArrayList<>();
 	}
 
-	public OrderInfo(int orderId, int customerId, String datePlaced, List<OrderEntry> orderEntries) {
+	public OrderInfo(int orderInfoId, int customerId, String datePlaced, List<OrderEntry> orderEntries) {
 		super();
-		this.orderId = orderId;
+		this.orderInfoId = orderInfoId;
 		this.customerId = customerId;
 		this.datePlaced = datePlaced;
 		this.orderEntries = orderEntries;
 	}
 
-	public int getOrderId() {
-		return orderId;
+	public int getOrderInfoId() {
+		return orderInfoId;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setOrderInfoId(int orderId) {
+		this.orderInfoId = orderId;
 	}
 
 	public int getCustomerId() {
@@ -64,12 +64,12 @@ public class OrderInfo {
 	public void addVinyl(int vinyl, int quantity) {
 		boolean added = false;
 		for (OrderEntry entry : this.orderEntries)
-			if (entry.getVinyl() == vinyl) {
+			if (entry.getVinylId() == vinyl) {
 				entry.setQuantity(entry.getQuantity() + quantity);
 				added = true;
 			}
 		if (!added)
-			this.orderEntries.add(new OrderEntry(0, this.orderId, vinyl, quantity));
+			this.orderEntries.add(new OrderEntry(0, this.orderInfoId, vinyl, quantity));
 
 	}
 
@@ -80,7 +80,7 @@ public class OrderInfo {
 
 	@Override
 	public String toString() {
-		return "OrderInfo [orderId=" + orderId + ", customerId=" + customerId + ", datePlaced=" + datePlaced
+		return "OrderInfo [orderId=" + orderInfoId + ", customerId=" + customerId + ", datePlaced=" + datePlaced
 				+ ", orderEntries=" + orderEntries + "]";
 	}
 
