@@ -30,7 +30,7 @@ public class StudioService {
 		return studioRepository.save(studio);
 	}
 
-	public List<Studio> getAllCategories() {
+	public List<Studio> getAllStudios() {
 		return studioRepository.findAll();
 	}
 

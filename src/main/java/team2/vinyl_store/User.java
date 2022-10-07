@@ -21,12 +21,10 @@ public class User {
 	private boolean isAdmin;
 
 	public User() {
-		super();
 	}
 
 	public User(int userId, String name, String address, String username, String password, String paymentInfo,
 			boolean isAdmin) {
-		super();
 		this.userId = userId;
 		this.name = name;
 		this.address = address;
