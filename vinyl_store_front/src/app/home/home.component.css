@@ -42,7 +42,10 @@ body {
 .display-scroll-btn:hover {
     background-color: #cccccc;
 }
-
+.navbar-nav.mr-auto > .nav-item > .nav-link {
+    font-size: 20px;
+    padding-right: 16px;
+}
 
 
 #best-sellers {

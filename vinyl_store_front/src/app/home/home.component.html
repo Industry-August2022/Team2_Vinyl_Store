@@ -9,7 +9,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#" style="padding-right: 150px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+                <a class="navbar-brand" href="#" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,6 +40,9 @@
                       </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                      </li>
+                    <li class="nav-item">
                       <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
                     </li>
                   </ul>
@@ -52,11 +55,64 @@
                 </div>
               </nav>
         </header>
-        <div id="best-sellers">
+        <div class="slideshow-containter"  id="best-sellers">
             <h1>Best Selling Vinyl</h1>
             <div class="dividing-line"></div>
             <div class="category-display">
-                <div class="display-scroll-btn disabled"><p>◀</p></div>
+                <button class="display-scroll-btn disabled">◀</button>
+                <a href="#">
+                    <div class="album-highlight">
+                        <img src="/assets/images/album_art/steve_lacy_gemini-rights.jpg">
+                        <div class="album-text">
+                            <h4>Gemini Rights</h4>
+                            <h5>Steve Lacy</h5>
+                            <h5>$59.99</h5>
+                        </div>
+                        <div class="explicit hidden"><p>E</p></div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="album-highlight">
+                        <img src="/assets/images/album_art/doja_cat_planet-her.jpg">
+                        <div class="album-text">
+                            <h4>Planet Her</h4>
+                            <h5>Doja Cat</h5>
+                            <h5>$49.99</h5>
+                        </div>
+                        <div class="explicit"><p>E</p></div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="album-highlight">
+                        <img src="/assets/images/album_art/stromae_multitude.jpeg">
+                        <div class="album-text">
+                            <h4>Multitude</h4>
+                            <h5>Stromae</h5>
+                            <h5>$49.99</h5>
+                        </div> 
+                        <div class="explicit hidden"><p>E</p></div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="album-highlight">
+                        <img src="/assets/images/album_art/vince-staples-rPBH.jpg">
+                        <div class="album-text">
+                            <h4>Ramona Park Broke My Heart</h4>
+                            <h5>Vince Staples</h5>
+                            <h5>$59.99</h5>
+                        </div>
+                        <div class="explicit"><p>E</p></div>
+                    </div>
+                </a>
+                <button class="display-scroll-btn">▶</button>
+            </div>
+        </div> <!-- best-sellers -->
+
+        <div class="slideshow-containter"  id="best-sellers">
+            <h1>Staff Picks</h1>
+            <div class="dividing-line"></div>
+            <div class="category-display">
+                <button class="display-scroll-btn disabled">◀</button>
                 <a href="#">
                     <div class="album-highlight">
                         <img src="/assets/images/album_art/queen_sheer_heart_attack.webp">
@@ -101,9 +157,10 @@
                         <div class="explicit"><p>E</p></div>
                     </div>
                 </a>
-                <div class="display-scroll-btn"><p>▶</p></div>
+                <button class="display-scroll-btn">▶</button>
             </div>
         </div> <!-- best-sellers -->
+        <!--
         <div id="genre-display">
             <h1>Genres</h1>
             <div class="dividing-line"></div>
@@ -128,7 +185,18 @@
                 </div>
             </div>
         </div> 
-        <!-- genre-display -->
+        genre-display -->
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
     </body>
     
 </html>
