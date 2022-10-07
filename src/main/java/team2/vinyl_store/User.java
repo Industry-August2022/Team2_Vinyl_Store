@@ -12,7 +12,6 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 
-	private String name;
 	private String address;
 	private String username;
 	private String password;
@@ -21,14 +20,10 @@ public class User {
 	private boolean isAdmin;
 
 	public User() {
-		super();
 	}
 
-	public User(int userId, String name, String address, String username, String password, String paymentInfo,
-			boolean isAdmin) {
-		super();
+	public User(int userId, String address, String username, String password, String paymentInfo, boolean isAdmin) {
 		this.userId = userId;
-		this.name = name;
 		this.address = address;
 		this.username = username;
 		this.password = password;
@@ -42,14 +37,6 @@ public class User {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getAddress() {
@@ -94,8 +81,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", address=" + address + ", username=" + username
-				+ ", password=" + password + ", paymentInfo=" + paymentInfo + ", isAdmin=" + isAdmin + "]";
+		return "User [userId=" + userId + ", address=" + address + ", username=" + username + ", password=" + password
+				+ ", paymentInfo=" + paymentInfo + ", isAdmin=" + isAdmin + "]";
 	}
 
 }

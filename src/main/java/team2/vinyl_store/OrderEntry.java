@@ -12,18 +12,18 @@ public class OrderEntry {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderEntryId;
 	private int orderId;
-	private int vinyl;
+	private int vinylId;
 	private int quantity;
 
 	public OrderEntry() {
 		super();
 	}
 
-	public OrderEntry(int orderEntryId, int orderId, int vinyl, int quantity) {
+	public OrderEntry(int orderEntryId, int orderId, int vinylId, int quantity) {
 		super();
 		this.orderEntryId = orderEntryId;
 		this.orderId = orderId;
-		this.vinyl = vinyl;
+		this.vinylId = vinylId;
 		this.quantity = quantity;
 	}
 
@@ -43,12 +43,12 @@ public class OrderEntry {
 		this.orderId = orderId;
 	}
 
-	public int getVinyl() {
-		return vinyl;
+	public int getVinylId() {
+		return vinylId;
 	}
 
-	public void setVinyl(int vinyl) {
-		this.vinyl = vinyl;
+	public void setVinylId(int vinyl) {
+		this.vinylId = vinyl;
 	}
 
 	public int getQuantity() {
@@ -61,7 +61,7 @@ public class OrderEntry {
 
 	@Override
 	public String toString() {
-		return "OrderInfo [orderEntryId=" + orderEntryId + ", orderId=" + orderId + ", vinyl=" + vinyl + ", quantity="
+		return "OrderInfo [orderEntryId=" + orderEntryId + ", orderId=" + orderId + ", vinyl=" + vinylId + ", quantity="
 				+ quantity + "]";
 	}
 

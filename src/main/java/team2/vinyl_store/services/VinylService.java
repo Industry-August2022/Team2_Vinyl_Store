@@ -11,7 +11,7 @@ import team2.vinyl_store.repositories.VinylRepository;
 @Service
 public class VinylService {
 
-	private final VinylRepository vinylRepository;
+	private VinylRepository vinylRepository;
 
 	@Autowired
 	protected VinylService(VinylRepository vinylRepository) {
