@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="form-handler.component.css">
+    </head>
+    <body>
+        <div class="form">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <label for="email" id="form-label-email">Email: </label>
+                <input id="name" class="form-box" type="text" formControlName="email"/>
+                <br>
+                <label for="password"><span style="padding-right: 10px;">Password: </span></label>
+                <input id="password" class="form-box"  type="text" formControlName="password"/>
+                <br>
+                <button type></button>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </body>
+</html>
+
+
