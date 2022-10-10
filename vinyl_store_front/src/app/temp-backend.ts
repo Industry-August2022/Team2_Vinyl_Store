@@ -2,8 +2,10 @@ import { Injectable } from "@angular/core";
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { merge, Observable, of, throwError } from "rxjs";
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { registerLocaleData } from "@angular/common";
 
-let dummyUsers = [{userId: 1, fullName: 'Destiny Simms', email: 'test', password: 'test'}];
+
+let dummyUsers = JSON.parse(localStorage.getItem('users')!) || [];
 
 @Injectable()
 export class TempBackendInterceptor implements HttpInterceptor {
@@ -19,6 +21,8 @@ export class TempBackendInterceptor implements HttpInterceptor {
         function routeHandler(){
             if(url.endsWith('/users/authenticate') && method === 'POST'){
                 return authenticate();
+            }else if (url.endsWith('/users/register') && method === 'POST'){
+                return register();
             }
             return next.handle(request);
         }
@@ -26,7 +30,7 @@ export class TempBackendInterceptor implements HttpInterceptor {
         function authenticate(){
             const { username, password } = body;
             //match the entered information with the information in the mock DB 
-            const currentUser = dummyUsers.find(e => e.email === username && e.password === password);
+            const currentUser = dummyUsers.find((e: { email: any; password: any; }) => e.email === username && e.password === password);
 
             //if we can't find a match
             if(!currentUser){
@@ -41,6 +45,19 @@ export class TempBackendInterceptor implements HttpInterceptor {
             });
         }//authenticate()
 
+        function register(){
+            const user = body;
+
+            if(dummyUsers.find((x: { email: any; }) => x.email === dummyUsers.email)){
+                return error('Email address "' + user.email + '" is already registered.');
+            }
+
+            user.userId = dummyUsers.length ? Math.max(...dummyUsers.map((x: { userId: any; }) => x.userId)) + 1: 1;
+            dummyUsers.push(user);
+            localStorage.setItem('dummyUsers', JSON.stringify(dummyUsers));
+
+            return OK();
+        }
         function OK(body?: { userId: number; fullName: string; email: string; password: string; }){
             return of (new HttpResponse({ status: 200, body}));
         }

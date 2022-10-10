@@ -1,0 +1,13 @@
+.form {
+    margin: auto;
+    background-color: azure;
+}
+
+#form-label-email {
+    margin: 0;
+    padding-right: 38px;
+}
+
+.form-box {
+    margin-bottom: 7px;
+}

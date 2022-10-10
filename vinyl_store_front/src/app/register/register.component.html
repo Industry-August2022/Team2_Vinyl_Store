@@ -1,1 +1,53 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="EN" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="register.component.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+    </header>
+    <div class="login-container">
+        <h1 style="padding-bottom: 20px;">Register Module</h1>
+        <div class="form">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <label for="fullName"><span style="padding-right: 10px;">Full Name:  </span></label>
+                <input id="fullName" class="form-box"  type="text" formControlName="fullName"/>
+                <br>
+                <label for="email" id="form-label-email">Email: </label>
+                <input id="name" class="form-box" type="text" formControlName="email"/>
+                <br>
+                <label for="address"><span style="padding-right: 10px;">Address: </span></label>
+                <input id="address" class="form-box"  type="text" formControlName="address"/>
+                <br>
+                <label for="payment"><span style="padding-right: 10px;">Card Number: </span></label>
+                <input id="payment" class="form-box"  type="text" formControlName="paymentInfo"/>
+                <br>
+                <label for="password"><span style="padding-right: 10px;">Password: </span></label>
+                <input id="password" class="form-box"  type="text" formControlName="password"/>
+                <br>
+                <button type="button">Cancel</button>
+                <button type="submit">Register</button>
+                
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+</html>

@@ -43,7 +43,7 @@
                         <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
                         <!--Logged in users see the logout button instead-->
                         <ng-template #loggedUser>
-                            <a class="nav-link" href="#" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
                         </ng-template>
                     </li>
                     <li class="nav-item">
