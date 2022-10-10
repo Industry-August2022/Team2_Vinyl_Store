@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="EN" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="login.component.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+    </header>
+    <div class="login-container">
+        <h1 style="padding-bottom: 20px;">Login Module</h1>
+        <app-form-handler></app-form-handler>
+    </div>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
+<router-outlet></router-outlet>

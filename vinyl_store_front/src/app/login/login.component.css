@@ -1,0 +1,19 @@
+header {
+    margin-bottom: 20px;
+   
+}
+
+.login-container {
+    background-color:azure;
+    width:40%;
+    height:400px;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}

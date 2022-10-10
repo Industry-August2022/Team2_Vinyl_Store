@@ -9,7 +9,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+                <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -17,10 +17,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Shop</a>
+                      <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Shop</a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,8 +40,12 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                      </li>
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                        <!--Logged in users see the logout button instead-->
+                        <ng-template #loggedUser>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                        </ng-template>
+                    </li>
                     <li class="nav-item">
                       <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
                     </li>
@@ -200,3 +204,4 @@
     </body>
     
 </html>
+<router-outlet></router-outlet>
