@@ -3,29 +3,35 @@ INSERT INTO artist(name) VALUES('Brockhampton');
 INSERT INTO artist(name) VALUES('Rico Nasty');
 INSERT INTO artist(name) VALUES('La Fouine');
 
-INSERT INTO studio(name) VALUES('Studio1');
-INSERT INTO studio(name) VALUES('Studio2');
-INSERT INTO studio(name) VALUES('Studio3');
-INSERT INTO studio(name) VALUES('Studio4');
+INSERT INTO studio(name) VALUES('EMI');
+INSERT INTO studio(name) VALUES('Question Everything');
+INSERT INTO studio(name) VALUES('Atlantic');
+INSERT INTO studio(name) VALUES('Banlieue Sale');
+INSERT INTO studio(name) VALUES('Hollywood');
 
 INSERT INTO genre(name) VALUES('Rap');
 INSERT INTO genre(name) VALUES('Classic Rock');
 
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('Classic Queen', 2, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES('Classic Queen', 2, 1, 1, 'Tracks: A Kind of Magic, Bohemian Rhapsody, Under Pressure, Hammer to Fall, Stone Cold Crazy, One Year of Love, Radio Ga Ga, I''m Going Slightly Mad, I Want It All, Tie Your Mother Down, The Miracle, These Are the Days of Our Lives, One Vision, Keep Yourself Alive, Headlong, Who Wants to Live Forever, The Show Must Go On',
+					'1992-03-03', 3599, '/assets/images/album_art/queen_sheer_heart_attack.webp', 4510, 10, 0, false, false);
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('Ginger', 1, 1, 2, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES('Ginger', 1, 1, 2, 'Tracks: No Halo, Sugar, Boy Bye, Heaven Belongs to You, St. Percy, If You Pray Right, Dearly Departed, I Been Born Again, Ginger, Big Boy, Love Me for Life, Victor Roberts',
+					'2019-08-23', 3599, '/assets/images/album_art/brockhampton_ginger.png', 2656, 1, 0, true, false);
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('XXI', 1, 1, 4, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES('Nightmare Vacation', 1, 1, 3, 'Tracks: Candy, Don''t Like Me, Check Me Out, iPhone, STFU, Back and Forth, Girl Scouts, Let It Out, Lose, No Debate, Pussy Poppin, OHFR?, 10Fo, Own It, Smack a Bitch (Remix), Smack a Bitch',
+					'2020-12-04', 3599, '/assets/images/album_art/rico_nasty_nightmare_vacation.webp', 2666, 1, 0, true, false);
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('Nightmare Vacation', 1, 1, 3, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES('XXI', 1, 1, 4, 'Tracks: Rafale f3r, Millions, Monument, Avalanche, Euthanasie, Dans la zone, Sacoche, Goyard, Déracinés, Beretta, Bilet de 500, Poulet braisé, Pas le choix, Comment on fait, Laisse faire, Pardonne-moi',
+					'2021-05-21', 3599, '/assets/images/album_art/la_fouine_xxi.jfif', 2666, 1, 0, true, false);
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('Queen', 2, 1, 1, 'Desc', '1999-01-01', 100, '', 60, 1, 0, false, false);
+				VALUES('Queen', 2, 1, 5, 'Tracks: Keep Yourself Alive, Doing All Right, Great King Rat, My Fairy King, Liar, The Night Comes Down, Modern Times Rock ''n'' Roll, Son and Daughter, Jesus, Seven Seas of Rhye',
+					'1973-07-13', 3599, '/assets/images/album_art/queen_queen.png', 2326, 10, 0, false, false);
 
 INSERT INTO category(name) VALUES('Best Selling');
 INSERT INTO category(name) VALUES('Kids Hits');
