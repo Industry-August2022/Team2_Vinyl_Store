@@ -2,7 +2,6 @@ package team2.vinyl_store.rest_controllers;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,14 +14,14 @@ import team2.vinyl_store.services.UserService;
 
 @RestController
 public class UserController {
-	private UserService userService;
+
+	private final UserService userService;
 
 	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
-	
-	
+
 	@GetMapping(path = "/api/user/{id}")
 	public User getById(@PathVariable int id) {
 		return userService.getUserByID(id);
@@ -37,4 +36,5 @@ public class UserController {
 	public User postNew(@RequestBody User newUser) {
 		return userService.insertUser(newUser);
 	}
+
 }

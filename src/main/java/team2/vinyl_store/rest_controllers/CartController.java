@@ -15,7 +15,7 @@ import team2.vinyl_store.services.CartService;
 @RestController
 public class CartController {
 
-	public final CartService cartService;
+	private final CartService cartService;
 
 	@Autowired
 	public CartController(CartService cartService) {
