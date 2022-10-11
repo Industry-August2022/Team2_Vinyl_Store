@@ -1,0 +1,27 @@
+.orderconf_pic{
+    display: block;
+    margin: auto;
+    width: 20%;
+    height: 20%;
+  }
+  #genre-display {
+    background-color: #ade7ff;
+    padding: 10px 0px 15px;
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+    margin: 10px 5%;
+    box-shadow: 10px -3px 20px #5e7e8b;
+    border-radius: 15px;
+}
+.dividing-line {
+  width: 80%;
+  margin: 10px auto;
+  height: 3px;
+  background-color: #afafaf;
+}
+footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

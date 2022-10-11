@@ -12,6 +12,10 @@ import { tempBackendProvider } from './temp-backend';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
 import { ShopComponent } from './shop/shop.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { ShopComponent } from './shop/shop.component';
     LoginComponent,
     FormHandlerComponent,
     RegisterComponent,
-    ShopComponent
+    ShopComponent,
+    UserProfileComponent,
+    ProductPageComponent,
+    OrderConfirmationComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,
