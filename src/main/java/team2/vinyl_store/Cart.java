@@ -18,7 +18,7 @@ public class Cart {
 	private int customerId;
 	@OneToMany(mappedBy = "cartId")
 	private List<CartContent> cartContents;
-	
+
 	public Cart() {
 		this.cartContents = new ArrayList<>();
 	}
@@ -28,7 +28,7 @@ public class Cart {
 		this.customerId = customerId;
 		this.cartContents = cartcontent;
 	}
-	
+
 	public void addToCart(CartContent cartContent) {
 		for (CartContent content : cartContents) {
 			if (content.getCartContentId() == cartContent.getCartContentId()) {
@@ -39,7 +39,7 @@ public class Cart {
 			}
 		}
 	}
-	
+
 	public void removeFromCart(CartContent cartContent) {
 		if (cartContents.contains(cartContent)) {
 			cartContents.remove(cartContent);
@@ -62,8 +62,13 @@ public class Cart {
 		this.customerId = customerId;
 	}
 
+	public List<CartContent> getCartContents() {
+		return this.cartContents;
+	}
+
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", customerId=" + customerId + "]";
+		return "Cart [cartId=" + cartId + ", customerId=" + customerId + ", cartContents=" + cartContents + "]";
 	}
+
 }
