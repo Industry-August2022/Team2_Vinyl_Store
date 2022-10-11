@@ -23,8 +23,50 @@ export class TempBackendInterceptor implements HttpInterceptor {
                 return authenticate();
             }else if (url.endsWith('/users/register') && method === 'POST'){
                 return register();
+            }else if (url.endsWith('/users') && method == 'GET'){
+                return getUsers();
+            }else if (url.match(/\/users\/\d+$/) && method === 'DELETE'){
+                return deleteUser();
             }
             return next.handle(request);
+        }
+
+        function getUsers() {
+            if (!isLoggedIn()){
+                return unauthorizedUser();
+            }
+            return OK();
+        }
+
+        function isLoggedIn(){
+            const { username, password } = body;
+            const currentUser = dummyUsers.find((e: { email: any; password: any; }) => e.email === username && e.password === password);
+
+            //if we can't find a match
+            if(!currentUser){
+                return error('Email or password is incorrect');
+            }
+            return true;
+        }
+
+        function deleteUser() {
+            if (!isLoggedIn()){
+                return unauthorizedUser();
+            }
+
+            dummyUsers = dummyUsers.filter((x: { id: number; }) =>- x.id !== idFromUrl());
+            localStorage.setItem('dummyUsers', JSON.stringify(dummyUsers));
+            return OK();
+        }
+
+        function unauthorizedUser(){
+            return throwError( { status: 401, error: {message: 'Unauthorized user'}});
+        }
+
+
+        function idFromUrl(){
+            const urlSplit = url.split('/');
+            return parseInt(urlSplit[urlSplit.length - 1]);
         }
 
         function authenticate(){

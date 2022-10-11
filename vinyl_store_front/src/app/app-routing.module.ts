@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'shop', component: ShopComponent},
   { path: 'user-profile', component:UserProfileComponent},
   { path: 'order-confirmation', component:OrderConfirmationComponent},
-  { path: 'shop/product', component:ProductPageComponent},
+  { path: 'shop/:id', component:ProductPageComponent},
   { path: 'checkout', component:CheckoutPageComponent},
   { path: '', component: HomeComponent}
 
