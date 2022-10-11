@@ -33,6 +33,10 @@ public class CartService {
 	public List<Cart> getAllCarts() {
 		return cartRepository.findAll();
 	}
+
+	public Cart getCartByCustomerId(int customerId) {
+		return cartRepository.getCartByCustomerId(customerId);
+	}
 	
 	
 }

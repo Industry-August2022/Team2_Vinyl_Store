@@ -7,4 +7,7 @@ import team2.vinyl_store.Cart;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Integer> {
+	
+	public Cart getCartByCustomerId(int customerId);
+	
 }

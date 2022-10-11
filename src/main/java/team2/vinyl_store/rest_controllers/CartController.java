@@ -21,8 +21,7 @@ public class CartController {
 	public CartController(CartService cartService) {
 		this.cartService = cartService;
 	}
-	
-	
+
 	@GetMapping(path = "/api/cart/{id}")
 	public Cart getById(@PathVariable int id) {
 		return cartService.getCartByID(id);
@@ -36,6 +35,11 @@ public class CartController {
 	@PostMapping(path = "/api/cart")
 	public Cart postNew(@RequestBody Cart newCart) {
 		return cartService.insertCart(newCart);
+	}
+
+	@GetMapping(path = "/api/cart/user/{id}")
+	public Cart getByUserId(@PathVariable int id) {
+		return cartService.getCartByCustomerId(id);
 	}
 
 }
