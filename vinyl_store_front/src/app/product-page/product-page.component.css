@@ -1,0 +1,25 @@
+.albumpic{
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 30%;
+    height:30%;
+    display: flex;
+}
+#textbox{
+    background-color:white;
+    padding: 10px 10px 10px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    width:90%;
+    margin-right:10px;
+}
+#product-display {
+    background-color: #ade7ff;
+    padding: 10px 0px 15px;
+    display: flex;
+    width: 90%;
+    margin: 10px 5%;
+    box-shadow: 10px -3px 20px #5e7e8b;
+    border-radius: 15px;
+}

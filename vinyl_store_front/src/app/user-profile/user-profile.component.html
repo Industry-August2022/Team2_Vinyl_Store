@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>User Profile</title>
+		<link rel="stylesheet" type="text/css" href="user-profile.component.css">
+	</head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Genres
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <a class="dropdown-item" href="#">Pop</a>
+                        <a class="dropdown-item" href="#">Jazz</a>
+                        <a class="dropdown-item" href="#">Rap</a>
+                        <a class="dropdown-item" href="#">R&B</a>
+                        <a class="dropdown-item" href="#">Indie</a>
+                        <a class="dropdown-item" href="#">Alternative</a>
+                        <a class="dropdown-item" href="#">Country</a>
+                        <a class="dropdown-item" href="#">Musicals</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Browse All</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                        <!--Logged in users see the logout button instead-->
+                        <ng-template #loggedUser>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                        </ng-template>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control mr-sm-2" placeholder="Search for..." style="padding-right: 15px;">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
+                        </div>
+                  </form>
+                </div>
+              </nav>
+        </header>
+        <div class="card mb-4">
+            <div class="card-header">Account Details</div>
+            <div class="card-body">
+                <form>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputFirstName">First name: Bob</label>
+                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputLastName">Last name: Bob</label>
+                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" >
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputLocation">Location: Bobland</label>
+                            <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputEmailAddress">Email address: Bob@gmail.com</label>
+                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="">
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputPhone">Phone number: 111-111-1111</label>
+                            <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputBirthday">Birthday: 1/11/1111   </label>
+                            <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="button">Save changes</button>
+                </form>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2022 Copyright:
+                <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+            </div>
+        <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </body>
+</html>
+<router-outlet></router-outlet>
