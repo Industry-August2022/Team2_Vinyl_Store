@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Vinyl Store</title>
+	<link rel="stylesheet" type="text/css" href="shop.component.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Shop</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Genres
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <a class="dropdown-item" href="#">Pop</a>
+                    <a class="dropdown-item" href="#">Jazz</a>
+                    <a class="dropdown-item" href="#">Rap</a>
+                    <a class="dropdown-item" href="#">R&B</a>
+                    <a class="dropdown-item" href="#">Indie</a>
+                    <a class="dropdown-item" href="#">Alternative</a>
+                    <a class="dropdown-item" href="#">Country</a>
+                    <a class="dropdown-item" href="#">Musicals</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Browse All</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                    <!--Logged in users see the logout button instead-->
+                    <ng-template #loggedUser>
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                    </ng-template>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                      <input type="text" class="form-control mr-sm-2" placeholder="Search for..." style="padding-right: 15px;">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
+                    </div>
+              </form>
+            </div>
+          </nav>
+    </header>
+    <div id="shop-header">
+        <h3>All Vinyls</h3>
+    </div>
+    <div><!--div surrounding the filter bar-->
+        <div class="filter-bar">
+        <select name="artist" class="filter-boxes">
+            <option value="Artist">Artist</option>
+            <option value="Rico Nasty">Rico Nasty</option>
+            <option value="Queen">Queen</option>
+            <option value="La Fouine">La Fouine</option>
+            <option value="Brockhampton">BROCKHAMPTON</option>
+        </select>
+        <select name="Genre" class="filter-boxes">
+            <option value="Genre">Genre</option>
+            <option value="Rock">Rock</option>
+            <option value="Alternative">Alternative</option>
+            <option value="R&B">R&B</option>
+            <option value="Brockhampton">Rap</option>
+        </select>
+        <select name="Sort" class="filter-boxes">
+            <option value="Release Date">Release Date</option>
+            <option value="Runtime">Runtime</option>
+            <option value="PriceLow">Price low to high</option>
+            <option value="PriceHigh">Price high to low</option>
+        </select>
+        <select name="Studio" class="filter-boxes">
+            <option value="Studio">Studio</option>
+        </select>
+        </div>
+    </div> <!--div surrounding the filter bar-->
+    <div>
+        <table class="shop-table">
+            <caption># of vinyls found</caption>
+            <tr>
+                <td><img src="/assets/images/album_art/rico_nasty_nightmare_vacation.webp" alt="Rico_Nasty_Nightmare_Vacation"/>
+                    <br>
+                    <p>Nightmare Vaction by Rico Nasty</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+                <td><img src="/assets/images/album_art/queen_sheer_heart_attack.webp" alt="queen_sheer_heart_attack"/>
+                    <br>
+                    <p>Sheer Heart Attack by Queen</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+                <td><img src="/assets/images/album_art/la_fouine_xxi.jpg" alt="la_fouine_xxi"/>
+                    <br>
+                    <p>XXI by La Fouine</p>
+                    <button type="button" class="shop-buttons">Info</button>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="/assets/images/album_art/brockhampton_ginger.png" alt="Brockhampton_Ginger"/>
+                    <br>
+                    <p>Ginger by BROCKHAMPTON</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+            </tr>
+        </table>
+    </div>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
+<router-outlet></router-outlet>

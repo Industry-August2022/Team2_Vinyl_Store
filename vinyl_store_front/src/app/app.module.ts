@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { tempBackendProvider } from './temp-backend';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ErrorInterceptor } from './error.interceptor';
     HomeComponent,
     LoginComponent,
     FormHandlerComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
