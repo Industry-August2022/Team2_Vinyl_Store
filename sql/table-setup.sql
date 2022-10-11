@@ -33,7 +33,7 @@ CREATE TABLE vinyl (
     studio_id int NOT NULL,
     artist_id int NOT NULL,
     title varchar(32) NOT NULL,
-    description varchar(255) NOT NULL,
+    description varchar(1024) NOT NULL,
     release_date date NOT NULL,
     price_cents int NOT NULL,
     cover_art_url varchar(64),
