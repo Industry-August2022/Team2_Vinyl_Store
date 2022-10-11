@@ -14,14 +14,14 @@ import team2.vinyl_store.services.CartContentService;
 
 @RestController
 public class CartContentController {
-	CartContentService cartContentService;
+
+	private final CartContentService cartContentService;
 
 	@Autowired
 	public CartContentController(CartContentService cartContentService) {
 		this.cartContentService = cartContentService;
 	}
-	
-	
+
 	@GetMapping(path = "/api/cart_content/{id}")
 	public CartContent getById(@PathVariable int id) {
 		return cartContentService.getCartContentByID(id);

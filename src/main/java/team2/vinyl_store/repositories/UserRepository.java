@@ -8,4 +8,6 @@ import team2.vinyl_store.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	public User getUserByUsername(String username);
+
 }

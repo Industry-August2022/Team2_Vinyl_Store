@@ -14,7 +14,7 @@ import team2.vinyl_store.services.StudioService;
 @RestController
 public class StudioController {
 
-	private StudioService studioService;
+	private final StudioService studioService;
 
 	@Autowired
 	public StudioController(StudioService studioService) {

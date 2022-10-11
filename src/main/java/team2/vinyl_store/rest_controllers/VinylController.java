@@ -14,14 +14,14 @@ import team2.vinyl_store.services.VinylService;
 
 @RestController
 public class VinylController {
-	
-	VinylService vinylService;
+
+	private final VinylService vinylService;
 
 	@Autowired
 	public VinylController(VinylService vinylService) {
 		this.vinylService = vinylService;
 	}
-	
+
 	@GetMapping(path = "/api/vinyl/{id}")
 	public Vinyl getById(@PathVariable int id) {
 		return vinylService.getVinylByID(id);
@@ -36,4 +36,5 @@ public class VinylController {
 	public Vinyl postNew(@RequestBody Vinyl newVinyl) {
 		return vinylService.insertVinyl(newVinyl);
 	}
+
 }
