@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import team2.vinyl_store.Studio;
@@ -20,21 +21,20 @@ public class StudioController {
 	public StudioController(StudioService studioService) {
 		this.studioService = studioService;
 	}
-	
+
 	@GetMapping(path = "/api/studio/{id}")
-	public Studio getById (@PathVariable int id) {
+	public Studio getById(@PathVariable int id) {
 		return studioService.getStudioByID(id);
 	}
-	
+
 	@GetMapping(path = "/api/studio")
-	public List<Studio> getAll () {
+	public List<Studio> getAll() {
 		return studioService.getAllStudios();
 	}
-	
-	@PostMapping(path="/api/studio")
-	public Studio postNew(@PathVariable Studio newStudio) {
+
+	@PostMapping(path = "/api/studio")
+	public Studio postNew(@RequestBody Studio newStudio) {
 		return studioService.insertStudio(newStudio);
 	}
-	
-	
+
 }
