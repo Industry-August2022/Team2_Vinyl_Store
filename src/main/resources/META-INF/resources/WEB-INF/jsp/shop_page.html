@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Vinyl Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <a href="#"><img class="logo" src="images/logo.png" height="128px" width="242px" alt="Vinyl Store Logo"></a>
+        </div>
+        <div class="top-left-nav">
+            <a href="#" class="no-dec">Categories</a>
+            <a href="#" class="no-dec">Genres</a>
+        </div>
+        <div class="search">
+            <form id="search-bar">
+                <input type="text">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="top-right-nav">
+            <a href="#" class="no-dec">Login</a>
+            <a href="#" class="no-dec">Cart</a>
+        </div>
+    </header>
+    <div id="shop-header">
+        <h3>All Vinyls</h3>
+    </div>
+    <div><!--div surrounding the filter bar-->
+        <div class="filter-bar">
+        <select name="artist" class="filter-boxes">
+            <option value="Artist">Artist</option>
+            <option value="Rico Nasty">Rico Nasty</option>
+            <option value="Queen">Queen</option>
+            <option value="La Fouine">La Fouine</option>
+            <option value="Brockhampton">BROCKHAMPTON</option>
+        </select>
+        <select name="Genre" class="filter-boxes">
+            <option value="Genre">Genre</option>
+            <option value="Rock">Rock</option>
+            <option value="Alternative">Alternative</option>
+            <option value="R&B">R&B</option>
+            <option value="Brockhampton">Rap</option>
+        </select>
+        <select name="Sort" class="filter-boxes">
+            <option value="Release Date">Release Date</option>
+            <option value="Runtime">Runtime</option>
+            <option value="PriceLow">Price low to high</option>
+            <option value="PriceHigh">Price high to low</option>
+        </select>
+        <select name="Studio" class="filter-boxes">
+            <option value="Studio">Studio</option>
+        </select>
+        </div>
+    </div> <!--div surrounding the filter bar-->
+    <div>
+        <table class="shop-table">
+            <caption># of vinyls found</caption>
+            <tr>
+                <td><img src="images/album_art/rico_nasty_nightmare_vacation.webp" alt="Rico_Nasty_Nightmare_Vacation"/>
+                    <br>
+                    <p>Nightmare Vaction by Rico Nasty</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+                <td><img src="images/album_art/queen_sheer_heart_attack.webp" alt="queen_sheer_heart_attack"/>
+                    <br>
+                    <p>Sheer Heart Attack by Queen</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+                <td><img src="images/album_art/la_fouine_xxi.jpg" alt="la_fouine_xxi"/>
+                    <br>
+                    <p>XXI by La Fouine</p>
+                    <button type="button" class="shop-buttons">Info</button>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="images/album_art/brockhampton_ginger.png" alt="Brockhampton_Ginger"/>
+                    <br>
+                    <p>Ginger by BROCKHAMPTON</p>
+                    <button type="button" class="shop-buttons">Info</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
