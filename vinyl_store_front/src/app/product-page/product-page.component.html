@@ -59,14 +59,14 @@
               </nav>
         </header>
         <div id="product-display">
-            <img class="albumpic" src="/assets/images/album_art/rico_nasty_nightmare_vacation.webp">
+            <img class="albumpic" src="{{vinyl.coverArtUrl}}">
             <div id="textbox">
-            <b> Nightmare Vacation</b>
-            <p> By Rico Nasty </p>
-            <p> Description: sadasdsadasdssdsagdjwigudhgugudfhds sajdakdjadksjajakdwjadadjksadawda</p>
+            <b> {{vinyl.title}}</b>
+            <p>{{artist.name}}</p>
+            <p>{{vinyl.description}}</p>
             <br>
             <br>
-            <p>price: 19.99$</p> 
+            <p>${{vinyl.priceCents / 100}}</p> 
             
             </div>
         </div>

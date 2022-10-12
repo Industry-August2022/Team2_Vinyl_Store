@@ -91,26 +91,13 @@
     <div>
         <table class="shop-table">
             <caption># of vinyls found</caption>
-            <tr>
-                <td><img src="/assets/images/album_art/rico_nasty_nightmare_vacation.webp" alt="Rico_Nasty_Nightmare_Vacation"/>
+            <tr *ngFor="let vinyl of vinyls">
+                <td><a [routerLink]="['/shop', vinyl.vinylId]">
+                    <img src="{{vinyl.coverArtUrl}}" alt={{vinyl.title}}/>
                     <br>
-                    <p>Nightmare Vaction by Rico Nasty</p>
-                    <button type="button" class="shop-buttons">Info</button></td>
-                <td><img src="/assets/images/album_art/queen_sheer_heart_attack.webp" alt="queen_sheer_heart_attack"/>
-                    <br>
-                    <p>Sheer Heart Attack by Queen</p>
-                    <button type="button" class="shop-buttons">Info</button></td>
-                <td><img src="/assets/images/album_art/la_fouine_xxi.jpg" alt="la_fouine_xxi"/>
-                    <br>
-                    <p>XXI by La Fouine</p>
-                    <button type="button" class="shop-buttons">Info</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="/assets/images/album_art/brockhampton_ginger.png" alt="Brockhampton_Ginger"/>
-                    <br>
-                    <p>Ginger by BROCKHAMPTON</p>
-                    <button type="button" class="shop-buttons">Info</button></td>
+                    <p>{{vinyl.title}}</p>
+                    </a>
+                  </td>
             </tr>
         </table>
     </div>

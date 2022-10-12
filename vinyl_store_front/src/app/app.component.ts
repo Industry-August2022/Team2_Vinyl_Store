@@ -9,3 +9,4 @@ export class AppComponent {
   
   title = 'vinyl_store_front';
 }
+export let apiUrl:string = "http://localhost:5000/api/";

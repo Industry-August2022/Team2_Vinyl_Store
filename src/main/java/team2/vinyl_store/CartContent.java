@@ -7,14 +7,14 @@ import javax.persistence.Id;
 
 @Entity
 public class CartContent {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartContentId;
 	private int cartId;
 	private int vinylId;
 	private int quantity;
-	
+
 	public CartContent() {
 	}
 
@@ -62,5 +62,5 @@ public class CartContent {
 		return "CartContent [cartContentId=" + cartContentId + ", cartId=" + cartId + ", vinylId=" + vinylId
 				+ ", quantity=" + quantity + "]";
 	}
-	
+
 }
