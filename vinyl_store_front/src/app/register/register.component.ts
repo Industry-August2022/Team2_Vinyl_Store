@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
-import { UserService } from '../services/user.service';
-
-
+import { RegisterHolder } from '../api-classes/auth/register-holder';
 
 @Component({
   selector: 'app-register',
@@ -20,8 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService,
-    private userService: UserService
+    private authService: AuthenticationService
   ) {
       //go home when logged in
       if (this.authService.currentUserValue){
@@ -30,12 +27,10 @@ export class RegisterComponent implements OnInit {
    }
 
   registerForm = new FormGroup({
-    fullName: new FormControl(''),
     email: new FormControl(''),
     address: new FormControl(''),
     paymentInfo: new FormControl(''),
     password: new FormControl('')
-
   })
 
   get access() {
@@ -46,7 +41,8 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
 
-    this.userService.register(this.registerForm.value)
+    this.authService.register(new RegisterHolder(this.registerForm.get("address")!.value!,
+        this.registerForm.get("email")!.value!, this.registerForm.get("password")!.value!, this.registerForm.get("paymentInfo")!.value!))
       .pipe(first())
       .subscribe(
         data => {

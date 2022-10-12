@@ -48,6 +48,17 @@ export class CartService {
       );
   }
 
+  getCartByUserId(userId: number) : Observable<Cart> {
+    return this.httpClient.get<Cart>(apiUrl+"cart/user/" +userId)
+      .pipe(
+        map(response => {
+          this.cart = response;
+          return response;
+        }),
+        catchError(this.handleError<any>())
+      );
+  }
+
   handleError<T>(): any {
     return (error: any): Observable<T> => {
       console.log(error);

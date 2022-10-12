@@ -34,8 +34,6 @@ export class FormHandlerComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    console.log("The form has been submitted.\nThe username: " + this.access.email.value + "\nThe pass: "
-    + this.access.password.value);
 
     this.error = '';
     this.success = '';

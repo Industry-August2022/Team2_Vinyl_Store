@@ -1,22 +1,56 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
+import { User } from '../api-classes/user';
+import { catchError, map } from 'rxjs/operators';
+import { apiUrl } from '../app.component';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient){}
+  users !: User[];
+  user !: User;
 
-  getAllUsers(){
-    return this.http.get<any[]>(`http://localhost:4200/users`);
+  postHeader = {headers: new HttpHeaders({
+    'Content-Type' : 'application/json'
+  })};
+
+
+  constructor(private httpClient: HttpClient) { }
+
+  addUser(user : User) : boolean{
+    this.httpClient.post<User>(apiUrl+"user", user, this.postHeader)
+      .subscribe(response => {}, (err) => {console.log(err);
+      });
+      return true;
   }
 
-  register(user: any){
-    return this.http.post(`http://localhost:4200/users/register`, user);
-  }
-  
-  delete(id: any){
-    return this.http.delete(`http://localhost:4200/users/${id}`);
+  getAllUsers(): Observable<User[]>{
+    return this.httpClient.get<User[]>(apiUrl+"user")
+      .pipe(
+        map(response => {
+          this.users = response;
+          return response;
+        }),
+        catchError(this.handleError<any>())
+      );
   }
 
+  getUserById(userId: number) : Observable<User>{
+    return this.httpClient.get<User>(apiUrl+"user/" +userId)
+      .pipe(
+        map(response => {
+          this.user = response;
+          return response;
+        }),
+        catchError(this.handleError<any>())
+      );
+  }
+
+  handleError<T>(): any {
+    return (error: any): Observable<T> => {
+      console.log("error");
+      return error;
+    }
+  }
 }

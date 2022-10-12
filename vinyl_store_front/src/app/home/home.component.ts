@@ -26,13 +26,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-
-  deleteUser(id:number){
-    this.userService.delete(id)
-    .pipe(first())
-    .subscribe(() => this.loadAllUsers());
-  }
-
   private loadAllUsers() {
     this.userService.getAllUsers()
     .pipe(first())
