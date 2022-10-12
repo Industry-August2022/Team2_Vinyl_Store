@@ -30,7 +30,7 @@ INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_da
 					'2021-05-21', 3599, '/assets/images/album_art/la_fouine_xxi.jfif', 2666, 1, 0, true, false);
 INSERT INTO vinyl(title, genre_id, studio_id, artist_id, description, release_date, price_cents,
 				cover_art_url, runtime, stock_quantity, times_ordered, is_explicit, is_archived)
-				VALUES('Queen', 2, 1, 5, 'Tracks: Keep Yourself Alive, Doing All Right, Great King Rat, My Fairy King, Liar, The Night Comes Down, Modern Times Rock ''n'' Roll, Son and Daughter, Jesus, Seven Seas of Rhye',
+				VALUES('Queen', 2, 5, 1, 'Tracks: Keep Yourself Alive, Doing All Right, Great King Rat, My Fairy King, Liar, The Night Comes Down, Modern Times Rock ''n'' Roll, Son and Daughter, Jesus, Seven Seas of Rhye',
 					'1973-07-13', 3599, '/assets/images/album_art/queen_queen.png', 2326, 10, 0, false, false);
 
 INSERT INTO category(name) VALUES('Best Selling');
