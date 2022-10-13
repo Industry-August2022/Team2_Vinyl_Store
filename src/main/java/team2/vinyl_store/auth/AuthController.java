@@ -2,6 +2,7 @@ package team2.vinyl_store.auth;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +49,7 @@ public class AuthController {
 			return new LoginResponse("user already registered", false);
 		
 		messageDigest.update(registerHolder.getPassword().getBytes());
-		String passHash = new String(messageDigest.digest());
+		String passHash = new String(Base64.getEncoder().encode(messageDigest.digest()));
 		
 		User newUser = new User(-1, registerHolder.getAddress(), registerHolder.getUsername(),
 				passHash, registerHolder.getPaymentInfo(), false);

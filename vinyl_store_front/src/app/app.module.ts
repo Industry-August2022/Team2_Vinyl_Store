@@ -16,6 +16,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     UserProfileComponent,
     ProductPageComponent,
     OrderConfirmationComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

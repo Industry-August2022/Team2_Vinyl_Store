@@ -1,0 +1,28 @@
+.dividing-line {
+    width: 80%;
+    margin: 10px auto;
+    height: 3px;
+    background-color: #afafaf;
+}
+
+.admin {
+    text-align: center;
+}
+
+.admin-edit {
+    text-align: center;
+}
+
+
+button {
+    width: 100px;
+    text-align: center;
+    
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+td {
+    overflow:auto;
+}
