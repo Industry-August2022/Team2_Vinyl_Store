@@ -41,15 +41,16 @@ public class SearchController {
 		if (searchRequest == null)
 			return vinyls;
 
+		System.out.println(searchRequest);
 		List<Vinyl> ret = new LinkedList<>();
 		for (Vinyl vinyl : vinyls) {
-			if (searchRequest.getQuery() != null && isInQuery(vinyl, searchRequest.getQuery()))
+			if (searchRequest.getQuery() == null || isInQuery(vinyl, searchRequest.getQuery()))
 				ret.add(vinyl);
-			if (vinyl.getArtistId() == searchRequest.getArtistId())
+			if (vinyl.getArtistId() == 0 || vinyl.getArtistId() == searchRequest.getArtistId())
 				ret.add(vinyl);
-			if (vinyl.getGenreId() == searchRequest.getGenreId())
+			if (vinyl.getGenreId() == 0 || vinyl.getGenreId() == searchRequest.getGenreId())
 				ret.add(vinyl);
-			if (vinyl.getStudioId() == searchRequest.getStudioId())
+			if (vinyl.getStudioId() == 0 || vinyl.getStudioId() == searchRequest.getStudioId())
 				ret.add(vinyl);
 		}
 

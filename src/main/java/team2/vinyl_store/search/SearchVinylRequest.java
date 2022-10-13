@@ -1,9 +1,5 @@
 package team2.vinyl_store.search;
 
-import java.util.Comparator;
-
-import team2.vinyl_store.Vinyl;
-
 public class SearchVinylRequest {
 
 	private String query;
