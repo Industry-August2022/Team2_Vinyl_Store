@@ -78,8 +78,9 @@ body {
     width: 62%;
     float: left;
     margin-left: 60px;
-    margin-top: 5px;
+    margin-top: 1px;
     color:black;
+    text-size-adjust: auto;
 }
 .album-highlight h3 {
     margin-top: 6px;
@@ -172,19 +173,18 @@ body {
     margin-bottom: 4rem;
     padding-left:40px;
     padding-right:40px;
+    height: auto;
+    
   }
   .carousel-item {
-    height: 20rem;
-    background-color:#e2eaee;
-  }
-  .carousel-item-1 {
-    height: 20rem;
-    background-color:  #5e7e8b;
+    height: auto;
+    background-color: #ade7ff;
   }
 
   .album_pic{
     display: block;
     margin: auto;
     width: 20%;
-    height:100%;
+    height:auto;
   }
+  
