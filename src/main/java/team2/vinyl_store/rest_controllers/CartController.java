@@ -39,7 +39,11 @@ public class CartController {
 
 	@GetMapping(path = "/api/cart/user/{id}")
 	public Cart getByUserId(@PathVariable int id) {
-		return cartService.getCartByCustomerId(id);
+		Cart cart = cartService.getCartByCustomerId(id);
+		if(cart == null) {
+			cart = cartService.insertCart(new Cart(0,id,null));
+		}
+		return cart;
 	}
 
 }

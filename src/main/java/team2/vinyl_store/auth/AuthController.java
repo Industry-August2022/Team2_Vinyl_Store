@@ -32,21 +32,21 @@ public class AuthController {
 	public LoginResponse login(@RequestBody LoginHolder loginHolder) {
 		User user = userService.getUserByUsername(loginHolder.getUsername());
 		if (user == null)
-			return new LoginResponse("unknown username or password", false);
+			return new LoginResponse("unknown username or password", false, 0);
 		
 		messageDigest.update(loginHolder.getPassword().getBytes());
-		String passHash = new String(messageDigest.digest());
+		String passHash = new String(Base64.getEncoder().encode(messageDigest.digest()));
 
 		if (user.getPassword().equals(passHash))
-			return new LoginResponse("user authenticated", true);
-		return new LoginResponse("unknown username or password", false);
+			return new LoginResponse("user authenticated", true, user.getUserID());
+		return new LoginResponse("unknown username or password", false, 0);
 	}
 
 	@PostMapping(path = "/api/auth/register")
 	public LoginResponse register(@RequestBody RegisterHolder registerHolder) {
 		User user = userService.getUserByUsername(registerHolder.getUsername());
 		if (user != null)
-			return new LoginResponse("user already registered", false);
+			return new LoginResponse("user already registered", false, 0);
 		
 		messageDigest.update(registerHolder.getPassword().getBytes());
 		String passHash = new String(Base64.getEncoder().encode(messageDigest.digest()));
@@ -54,7 +54,7 @@ public class AuthController {
 		User newUser = new User(-1, registerHolder.getAddress(), registerHolder.getUsername(),
 				passHash, registerHolder.getPaymentInfo(), false);
 		userService.insertUser(newUser);
-		return new LoginResponse("user registered", true);
+		return new LoginResponse("user registered", true, newUser.getUserID());
 	}
 
 }

@@ -4,15 +4,26 @@ public class LoginResponse {
 
 	private String message;
 	private boolean success;
+	private int userId;
+
+	public LoginResponse(String message, boolean success, int userId) {
+		super();
+		this.message = message;
+		this.success = success;
+		this.userId = userId;
+	}
 
 	public LoginResponse() {
 		super();
 	}
 
-	public LoginResponse(String message, boolean success) {
-		super();
-		this.message = message;
-		this.success = success;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getMessage() {
@@ -33,7 +44,7 @@ public class LoginResponse {
 
 	@Override
 	public String toString() {
-		return "LoginResponse [message=" + message + ", success=" + success + "]";
+		return "LoginResponse [message=" + message + ", success=" + success + ", userId=" + userId + "]";
 	}
 
 }
