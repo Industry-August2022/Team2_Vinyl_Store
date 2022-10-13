@@ -12,8 +12,8 @@ export class Vinyl {
         public runtime: number,
         public stockQuantity: number,
         public timesOrdered: number,
-        public isExplicit: boolean,
-        public isArchived: boolean
+        public explicit: boolean,
+        public archived: boolean
     ) {
 
     }

@@ -12,6 +12,10 @@ import { GenreService } from '../services/genre.service';
 import { StudioService } from '../services/studio.service';
 import { UserService } from '../services/user.service';
 import { VinylService } from '../services/vinyl.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { VinylDialogComponent } from './vinyl-dialog/vinyl-dialog.component';
+import { vinylDialogData } from '../api-classes/vinylDialogData';
+
 
 @Component({
   selector: 'app-admin-page',
@@ -26,26 +30,47 @@ export class AdminPageComponent implements OnInit {
   genres !: Genre[];
   studios !: Studio[];
   categories !: Category[];
+  title!: string;
   
+
+  //variables for vinyl dialog
+
 
 
   constructor(
-    private router:Router,
+    private router: Router,
     private authService: AuthenticationService,
     private vinylService: VinylService,
     private artistService: ArtistService,
     private genreService: GenreService,
     private studioService: StudioService,
     private categoryService: CategoryService,
-    private userService: UserService
-  ){
+    private userService: UserService,
+    public dialog: MatDialog
+  ) {
     this.authService.currentUser.subscribe(x => this.currentUser = x);
     this.vinylService.getAllVinyl().subscribe(
       response => this.vinyls = response
+      
     );
   }
 
-  
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VinylDialogComponent, {
+      width: '300px',
+      data: {
+        name: this.title
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.title = result;
+      console.log("here is a thing: " + this.title);
+    });
+
+  }
+
 
   logout() {
     this.authService.logout();
@@ -56,28 +81,28 @@ export class AdminPageComponent implements OnInit {
     this.artistService.getAllArtists().subscribe(
       response => {
         this.artists = response;
-        this.artists.sort((a, b) => a.artistId < b.artistId?-1:1);
+        this.artists.sort((a, b) => a.artistId < b.artistId ? -1 : 1);
       }
     );
 
     this.genreService.getAllGenres().subscribe(
       response => {
         this.genres = response;
-        this.genres.sort((a, b) => a.genreId < b.genreId?-1:1);
+        this.genres.sort((a, b) => a.genreId < b.genreId ? -1 : 1);
       }
     );
 
     this.studioService.getAllStudios().subscribe(
       response => {
         this.studios = response;
-        this.studios.sort((a, b) => a.studioId < b.studioId?-1:1);
+        this.studios.sort((a, b) => a.studioId < b.studioId ? -1 : 1);
       }
     );
 
     this.categoryService.getAllCategorys().subscribe(
       response => {
         this.categories = response;
-        this.categories.sort((a, b) => a.categoryId < b.categoryId?-1:1);
+        this.categories.sort((a, b) => a.categoryId < b.categoryId ? -1 : 1);
       }
     );
 

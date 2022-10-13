@@ -7,51 +7,42 @@
         
 	</head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+                style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px"
+                    width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Shop</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Genres
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <a class="dropdown-item" href="#" *ngFor="let genre of genres">{{genre.name}}</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Browse All</a>
-                      </div>
+                        <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                            ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
                         <!--Logged in users see the logout button instead-->
                         <ng-template #loggedUser>
-                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                                ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
                         </ng-template>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                        <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
                     </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                        <div class="input-group">
-                          <input type="text" class="form-control mr-sm-2" placeholder="Search for..." style="padding-right: 15px;">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
-                        </div>
-                  </form>
-                </div>
-              </nav>
-        </header>
+                </ul>
+            </div>
+        </nav>
+    </header>
         <div id="best-sellers">
         <h1>Best Selling Vinyl</h1>
         <div class="dividing-line"></div>
@@ -130,59 +121,7 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-        <!--<div class="slideshow-containter"  id="best-sellers">
-            <h1>Best Selling Vinyl</h1>
-            <div class="dividing-line"></div>
-            <div class="category-display">
-            
-                <button class="display-scroll-btn disabled">◀</button>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/steve_lacy_gemini-rights.jpg">
-                        <div class="album-text">
-                            <h4>Gemini Rights</h4>
-                            <h5>Steve Lacy</h5>
-                            <h5>$59.99</h5>
-                        </div>
-                        <div class="explicit hidden"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/doja_cat_planet-her.jpg">
-                        <div class="album-text">
-                            <h4>Planet Her</h4>
-                            <h5>Doja Cat</h5>
-                            <h5>$49.99</h5>
-                        </div>
-                        <div class="explicit"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/stromae_multitude.jpeg">
-                        <div class="album-text">
-                            <h4>Multitude</h4>
-                            <h5>Stromae</h5>
-                            <h5>$49.99</h5>
-                        </div> 
-                        <div class="explicit hidden"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/vince-staples-rPBH.jpg">
-                        <div class="album-text">
-                            <h4>Ramona Park Broke My Heart</h4>
-                            <h5>Vince Staples</h5>
-                            <h5>$59.99</h5>
-                        </div>
-                        <div class="explicit"><p>E</p></div>
-                    </div>
-                </a>
-                <button class="display-scroll-btn">▶</button>
-            </div>
-        </div>  best-sellers -->
+       
         <div class="slideshow-containter"  id="best-sellers">
             <h1>Staff Picks</h1>
             <div class="dividing-line"></div>
@@ -261,85 +200,6 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
-        <!--<div class="slideshow-containter"  id="best-sellers">
-            <h1>Staff Picks</h1>
-            <div class="dividing-line"></div>
-            <div class="category-display">
-                <button class="display-scroll-btn disabled">◀</button>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/queen_sheer_heart_attack.webp">
-                        <div class="album-text">
-                            <h3>Sheer Heart Attack</h3>
-                            <h5>Queen</h5>
-                            <h5>$29.99</h5>
-                        </div>
-                        <div class="explicit hidden"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/brockhampton_ginger.png">
-                        <div class="album-text">
-                            <h3>Ginger</h3>
-                            <h5>Brockhampton</h5>
-                            <h5>$29.99</h5>
-                        </div>
-                        <div class="explicit hidden"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/la_fouine_xxi.jpg">
-                        <div class="album-text">
-                            <h3>XXI</h3>
-                            <h5>La Fouine</h5>
-                            <h5>$29.99</h5>
-                        </div> 
-                        <div class="explicit"><p>E</p></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="album-highlight">
-                        <img src="/assets/images/album_art/rico_nasty_nightmare_vacation.webp">
-                        <div class="album-text">
-                            <h3>Nightmare Vacation</h3>
-                            <h5>Rico Nasty</h5>
-                            <h5>$29.99</h5>
-                        </div>
-                        <div class="explicit"><p>E</p></div>
-                    </div>
-                </a>
-                <button class="display-scroll-btn">▶</button>
-            </div>
-        </div>  best-sellers
-        
-        <div id="genre-display">
-            <h1>Genres</h1>
-            <div class="dividing-line"></div>
-            <div id="genre-columns">
-                <div class="col-3">
-                    <a href="#" class="no-dec"><h2 class="genre-link">Pop</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Jazz</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Heavy Metal</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Blues</h2></a>
-                </div>
-                <div class="col-3">
-                    <a href="#" class="no-dec"><h2 class="genre-link">Rock</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Classic Rock</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Rap</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Musicals</h2></a>
-                </div>
-                <div class="col-3">
-                    <a href="#" class="no-dec"><h2 class="genre-link">Hip-Hop</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Classical</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Country</h2></a>
-                    <a href="#" class="no-dec"><h2 class="genre-link">Browse All...</h2></a>
-                </div>
-            </div>
-        </div> 
-        genre-display -->
 
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
