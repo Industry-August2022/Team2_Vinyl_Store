@@ -73,11 +73,11 @@ public class SearchController {
 		case "PRICE_LOW_HIGH":
 			vinyl.sort((v1, v2) -> v1.getPriceCents() < v2.getPriceCents() ? -1 : 1);
 			break;
-		case "DATE_RECENT":
+		case "DATE_NEW":
 			vinyl.sort((v1, v2) -> {
 				boolean isBefore;
 				try {
-					isBefore = DATE_FORMAT.parse(v1.getReleaseDate()).before(DATE_FORMAT.parse(v2.getReleaseDate()));
+					isBefore = !DATE_FORMAT.parse(v1.getReleaseDate()).before(DATE_FORMAT.parse(v2.getReleaseDate()));
 					return isBefore ? -1 : 1;
 				} catch (ParseException e) {
 					e.printStackTrace();
@@ -89,7 +89,7 @@ public class SearchController {
 			vinyl.sort((v1, v2) -> {
 				boolean isBefore;
 				try {
-					isBefore = !DATE_FORMAT.parse(v1.getReleaseDate()).before(DATE_FORMAT.parse(v2.getReleaseDate()));
+					isBefore = DATE_FORMAT.parse(v1.getReleaseDate()).before(DATE_FORMAT.parse(v2.getReleaseDate()));
 					return isBefore ? -1 : 1;
 				} catch (ParseException e) {
 					e.printStackTrace();
