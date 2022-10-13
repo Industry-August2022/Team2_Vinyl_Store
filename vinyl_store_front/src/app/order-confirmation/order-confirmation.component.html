@@ -6,58 +6,42 @@
 		<link rel="stylesheet" type="text/css" href="order-confirmation.component.css">
 	</head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px" width="100px"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+                style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px"
+                    width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Shop</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Genres
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <a class="dropdown-item" href="#">Pop</a>
-                        <a class="dropdown-item" href="#">Jazz</a>
-                        <a class="dropdown-item" href="#">Rap</a>
-                        <a class="dropdown-item" href="#">R&B</a>
-                        <a class="dropdown-item" href="#">Indie</a>
-                        <a class="dropdown-item" href="#">Alternative</a>
-                        <a class="dropdown-item" href="#">Country</a>
-                        <a class="dropdown-item" href="#">Musicals</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Browse All</a>
-                      </div>
+                        <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                            ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
                         <!--Logged in users see the logout button instead-->
                         <ng-template #loggedUser>
-                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                                ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
                         </ng-template>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                        <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
                     </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                        <div class="input-group">
-                          <input type="text" class="form-control mr-sm-2" placeholder="Search for..." style="padding-right: 15px;">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
-                        </div>
-                  </form>
-                </div>
-              </nav>
-        </header>
+                </ul>
+            </div>
+        </nav>
+    </header>
         <div id="genre-display">
             <img class="orderconf_pic" src="/assets/images/partypopper.png">
             <h1> Thank You For Your Order!

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormHandlerComponent } from './form-handler/form-handler.component';
 import { RegisterComponent } from './register/register.component';
 import { tempBackendProvider } from './temp-backend';
@@ -18,6 +18,15 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VinylDialogComponent } from './admin-page/vinyl-dialog/vinyl-dialog.component';
+import { MatDialog, MatDialogContent, MatDialogClose, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -31,14 +40,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductPageComponent,
     OrderConfirmationComponent,
     CheckoutPageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    VinylDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatInputModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

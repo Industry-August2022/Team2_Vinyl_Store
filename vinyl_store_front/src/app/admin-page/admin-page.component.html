@@ -22,29 +22,11 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active"
-                            ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                            ariaCurrentWhenActive="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active"
                             ariaCurrentWhenActive="page">Shop</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Genres
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <a class="dropdown-item" href="#">Pop</a>
-                            <a class="dropdown-item" href="#">Jazz</a>
-                            <a class="dropdown-item" href="#">Rap</a>
-                            <a class="dropdown-item" href="#">R&B</a>
-                            <a class="dropdown-item" href="#">Indie</a>
-                            <a class="dropdown-item" href="#">Alternative</a>
-                            <a class="dropdown-item" href="#">Country</a>
-                            <a class="dropdown-item" href="#">Musicals</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Browse All</a>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
@@ -59,13 +41,6 @@
                         <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="input-group">
-                        <input type="text" class="form-control mr-sm-2" placeholder="Search for..."
-                            style="padding-right: 15px;">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
-                    </div>
-                </form>
             </div>
         </nav>
     </header>
@@ -76,7 +51,7 @@
             <ngb-panel id="static-1" title="Vinyl">
               <ng-template ngbPanelContent>
                 <div class="admin-buttons">
-                    <button class="admin-edit">Edit</button>
+                    <button class="admin-edit" mat-raised-button (click)="openDialog()">Edit</button>
                     <button class="admin-add">Add</button>
                     <button class="admin-archive">Archive</button>
                 </div>
@@ -101,7 +76,7 @@
                     <tbody>
                         <tr *ngFor="let vinyl of vinyls">
                             <th scope="row">{{vinyl.vinylId}}</th>
-                            <td>{{vinyl.isArchived}}</td>
+                            <td>{{vinyl.archived}}</td>
                             <td>{{vinyl.title}}</td>
                             <td>{{artists[vinyl.artistId-1].name}}</td>
                             <td>{{studios[vinyl.studioId-1].name}}</td>
@@ -110,7 +85,7 @@
                             <td>{{vinyl.runtime}}</td>
                             <td>{{vinyl.releaseDate}}</td>
                             <td>{{vinyl.coverArtUrl}}</td>
-                            <td>{{vinyl.isExplicit}}</td>
+                            <td>{{vinyl.explicit}}</td>
                             <td>{{vinyl.stockQuantity}}</td>
                         </tr>
                     </tbody>
@@ -211,16 +186,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </ng-template>
-              </ngb-panel>
-              <ngb-panel id="static-6" title="Users">
-                <ng-template ngbPanelContent>
-                    <div class="admin-buttons">
-                        <button class="admin-edit">Edit</button>
-                        <button class="admin-add">Add</button>
-                        <button class="admin-archive">Archive</button>
-                    </div>
-                    <!--TODO: add user api-->
                 </ng-template>
               </ngb-panel>
           </ngb-accordion>
