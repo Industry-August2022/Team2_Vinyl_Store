@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="admin-page.component.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+                style="padding-right: 140px; padding-left: 125px;"><img src="/assets/images/logo.png" height="50px"
+                    width="100px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/shop" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" type="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Genres
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <a class="dropdown-item" href="#">Pop</a>
+                            <a class="dropdown-item" href="#">Jazz</a>
+                            <a class="dropdown-item" href="#">Rap</a>
+                            <a class="dropdown-item" href="#">R&B</a>
+                            <a class="dropdown-item" href="#">Indie</a>
+                            <a class="dropdown-item" href="#">Alternative</a>
+                            <a class="dropdown-item" href="#">Country</a>
+                            <a class="dropdown-item" href="#">Musicals</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Browse All</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                            ariaCurrentWhenActive="page" *ngIf="!currentUser; else loggedUser">Login</a>
+                        <!--Logged in users see the logout button instead-->
+                        <ng-template #loggedUser>
+                            <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active"
+                                ariaCurrentWhenActive="page" (click)="logout()"> Logout</a>
+                        </ng-template>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                        <input type="text" class="form-control mr-sm-2" placeholder="Search for..."
+                            style="padding-right: 15px;">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search!</button>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="admin">
+        <h2>Inventory</h2>
+        <div class="dividing-line"></div>
+        <ngb-accordion [closeOthers]="true" activeIds="static-1">
+            <ngb-panel id="static-1" title="Vinyl">
+              <ng-template ngbPanelContent>
+                <div class="admin-buttons">
+                    <button class="admin-edit">Edit</button>
+                    <button class="admin-add">Add</button>
+                    <button class="admin-archive">Archive</button>
+                </div>
+                <table class="table table-striped" >
+                    <caption>Vinyl</caption>
+                    <thead>
+                        <tr class="vinyl-headers">
+                            <th scope="col">vinyl ID</th>
+                            <th scope="col">isArchived</th>
+                            <th scope="col">title</th>
+                            <th scope="col">artist</th>
+                            <th scope="col">label</th>
+                            <th scope="col">genre</th>
+                            <th scope="col">price</th>
+                            <th scope="col">runtime</th>
+                            <th scope="col">release date</th>
+                            <th scope="col">image</th>
+                            <th scope="col">isExplicit</th>
+                            <th scope="col">quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vinyl of vinyls">
+                            <th scope="row">{{vinyl.vinylId}}</th>
+                            <td>{{vinyl.isArchived}}</td>
+                            <td>{{vinyl.title}}</td>
+                            <td>{{artists[vinyl.artistId-1].name}}</td>
+                            <td>{{studios[vinyl.studioId-1].name}}</td>
+                            <td>{{genres[vinyl.genreId-1].name}}</td>
+                            <td>${{vinyl.priceCents / 100}}</td>
+                            <td>{{vinyl.runtime}}</td>
+                            <td>{{vinyl.releaseDate}}</td>
+                            <td>{{vinyl.coverArtUrl}}</td>
+                            <td>{{vinyl.isExplicit}}</td>
+                            <td>{{vinyl.stockQuantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-2" title="Artists">
+              <ng-template ngbPanelContent>
+                <div class="admin-buttons">
+                    <button class="admin-edit">Edit</button>
+                    <button class="admin-add">Add</button>
+                    <button class="admin-archive">Archive</button>
+                </div>
+                <table class="table table-striped">
+                    <caption>Artists</caption>
+                    <thead>
+                        <tr class="artist-headers">
+                            <th scope="col">artist ID</th>
+                            <th scope="col">name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let artist of artists">
+                            <th scope="row">{{artist.artistId}}</th>
+                            <td>{{artist.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel><!--artist-->
+            <ngb-panel id="static-3" title="Genres">
+              <ng-template ngbPanelContent>
+                <div class="admin-buttons">
+                    <button class="admin-edit">Edit</button>
+                    <button class="admin-add">Add</button>
+                    <button class="admin-archive">Archive</button>
+                </div>
+                <table class="table table-striped">
+                    <caption>Genres</caption>
+                    <thead>
+                        <tr class="genre-headers">
+                            <th scope="col">genre ID</th>
+                            <th scope="col">name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let genre of genres">
+                            <th scope="row">{{genre.genreId}}</th>
+                            <td>{{genre.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-4" title="Categories">
+                <ng-template ngbPanelContent>
+                    <div class="admin-buttons">
+                        <button class="admin-edit">Edit</button>
+                        <button class="admin-add">Add</button>
+                        <button class="admin-archive">Archive</button>
+                    </div>
+                    <table class="table table-striped">
+                        <caption>Categories</caption>
+                        <thead>
+                            <tr class="category-headers">
+                                <th scope="col">category ID</th>
+                                <th scope="col">name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categories">
+                                <th scope="row">{{category.categoryId}}</th>
+                                <td>{{category.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-5" title="Studios">
+                <ng-template ngbPanelContent>
+                    <div class="admin-buttons">
+                        <button class="admin-edit">Edit</button>
+                        <button class="admin-add">Add</button>
+                        <button class="admin-archive">Archive</button>
+                    </div>
+                    <table class="table table-striped">
+                        <caption>Studios</caption>
+                        <thead>
+                            <tr class="studio-headers">
+                                <th scope="col">studio ID</th>
+                                <th scope="col">name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let studio of studios">
+                                <th scope="row">{{studio.studioId}}</th>
+                                <td>{{studio.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+              </ngb-panel>
+              <ngb-panel id="static-6" title="Users">
+                <ng-template ngbPanelContent>
+                    <div class="admin-buttons">
+                        <button class="admin-edit">Edit</button>
+                        <button class="admin-add">Add</button>
+                        <button class="admin-archive">Archive</button>
+                    </div>
+                    <!--TODO: add user api-->
+                </ng-template>
+              </ngb-panel>
+          </ngb-accordion>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright:
+            <a class="text-reset fw-bold" style="text-decoration:none;">Vinyl Store</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>

@@ -175,12 +175,13 @@ body {
   }
   .carousel-item {
     height: 20rem;
-    background-color: #ade7ff;
+    background-color:#e2eaee;
   }
   .carousel-item-1 {
     height: 20rem;
     background-color:  #5e7e8b;
   }
+
   .album_pic{
     display: block;
     margin: auto;
