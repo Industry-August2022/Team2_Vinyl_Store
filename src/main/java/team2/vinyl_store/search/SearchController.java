@@ -2,7 +2,6 @@ package team2.vinyl_store.search;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class SearchController {
 	private final GenreService genreService;
 	private final ArtistService artistService;
 	private final StudioService studioService;
-	
+
 	private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Autowired
@@ -42,23 +41,25 @@ public class SearchController {
 			return vinyls;
 
 		System.out.println(searchRequest);
-		List<Vinyl> ret = new LinkedList<>();
+		List<Vinyl> ret = vinylService.getAllVinyl();
 		for (Vinyl vinyl : vinyls) {
-			if (searchRequest.getQuery() == null || isInQuery(vinyl, searchRequest.getQuery()))
-				ret.add(vinyl);
-			if (vinyl.getArtistId() == 0 || vinyl.getArtistId() == searchRequest.getArtistId())
-				ret.add(vinyl);
-			if (vinyl.getGenreId() == 0 || vinyl.getGenreId() == searchRequest.getGenreId())
-				ret.add(vinyl);
-			if (vinyl.getStudioId() == 0 || vinyl.getStudioId() == searchRequest.getStudioId())
-				ret.add(vinyl);
+			if (searchRequest.getQuery() != null && !isInQuery(vinyl, searchRequest.getQuery()))
+				ret.remove(vinyl);
+
+			if (searchRequest.getGenreId() != 0 && vinyl.getGenreId() != searchRequest.getGenreId())
+				ret.remove(vinyl);
+			if (searchRequest.getStudioId() != 0 && vinyl.getStudioId() != searchRequest.getStudioId())
+				ret.remove(vinyl);
+			if (searchRequest.getArtistId() != 0 && vinyl.getArtistId() != searchRequest.getArtistId())
+				ret.remove(vinyl);
 		}
 
 		if (searchRequest.getOrderBy() != null)
+
 			orderResults(ret, searchRequest.getOrderBy());
 		return ret;
 	}
-	
+
 	private void orderResults(List<Vinyl> vinyl, String orderBy) {
 		switch (orderBy) {
 		case "RUNTIME_HIGH_LOW":
