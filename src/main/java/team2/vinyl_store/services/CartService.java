@@ -37,6 +37,10 @@ public class CartService {
 	public Cart getCartByCustomerId(int customerId) {
 		return cartRepository.getCartByCustomerId(customerId);
 	}
+
+	public void deleteCart(int cartId) {
+		cartRepository.deleteById(cartId);
+	}
 	
 	
 }
