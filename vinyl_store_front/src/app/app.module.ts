@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatInputModule } from '@angular/material/input';
+import { SearchBoxComponent } from './form-handler/search-box/search-box.component';
 
 
 
@@ -41,7 +42,8 @@ import { MatInputModule } from '@angular/material/input';
     OrderConfirmationComponent,
     CheckoutPageComponent,
     AdminPageComponent,
-    VinylDialogComponent
+    VinylDialogComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,6 @@ import { MatInputModule } from '@angular/material/input';
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     //REMOVE THIS WHEN WE GET THE ACTUAL BACKEND RUNNING
-    tempBackendProvider
   ],
   bootstrap: [AppComponent]
 })

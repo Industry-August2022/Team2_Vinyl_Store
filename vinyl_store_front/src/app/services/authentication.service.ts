@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { apiUrl } from '../app.component';
 import { RegisterHolder } from '../api-classes/auth/register-holder';
 import { LoginResponse } from '../api-classes/auth/login-response';
+import { User } from '../api-classes/user';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,11 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(username: any, password: any){
-    return this.http.post<any>(apiUrl + "auth/login", {username, password})
+  login(username: any, password: any): Observable<User>{
+    return this.http.post<User>(apiUrl + "auth/login", {username, password})
     .pipe(map(user => {
       localStorage.setItem('currentUser', JSON.stringify(user));
+      console.log("Here is the user: " + JSON.stringify(user));
       this.currentUserSubject.next(user);
       return user;
     }));

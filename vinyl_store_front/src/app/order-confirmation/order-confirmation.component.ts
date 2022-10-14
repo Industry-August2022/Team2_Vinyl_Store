@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -10,12 +10,15 @@ import { AuthenticationService } from '../services/authentication.service';
 export class OrderConfirmationComponent implements OnInit {
 
   currentUser: any;
+  orderId : number = 0;
 
   constructor(
     private router:Router,
+    private routes: ActivatedRoute,
     private authService: AuthenticationService
   ){
     this.authService.currentUser.subscribe(x => this.currentUser = x);
+    this.orderId = parseInt(this.routes.snapshot.paramMap.get('id')!);
   }
 
   logout() {

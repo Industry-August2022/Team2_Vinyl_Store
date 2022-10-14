@@ -18,7 +18,7 @@ import { VinylService } from '../services/vinyl.service';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-  currentUser: any;
+  currentUser: number;
   vinyls !: Vinyl[];
   genres !: Genre[];
   artists !: Artist[];
@@ -38,7 +38,12 @@ export class ShopComponent implements OnInit {
     private artistService: ArtistService,
     private studioService: StudioService
   ) {
-    this.authService.currentUser.subscribe(x => this.currentUser = x);
+    if(localStorage.getItem('currentUser') === null){
+      this.currentUser = 0;
+    }else{
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser')!).userId;
+    }
+    //this.authService.currentUser.subscribe(x => this.currentUser = x);
     this.vinylService.getAllVinyl().subscribe(
       response => this.vinyls = response
     );
