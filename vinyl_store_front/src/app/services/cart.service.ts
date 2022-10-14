@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Cart } from '../api-classes/cart';
 import { catchError, map } from 'rxjs/operators';
 import { apiUrl } from '../app.component';
+import { OrderInfo } from '../api-classes/order-info';
 @Injectable({
   providedIn: 'root'
 })
@@ -57,6 +58,16 @@ export class CartService {
         }),
         catchError(this.handleError<any>())
       );
+  }
+
+  checkoutUser(userId: number) : Observable<OrderInfo> {
+    return this.httpClient.get<OrderInfo>(apiUrl+"cart/checkout/"+userId)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError<any>())
+      )
   }
 
   handleError<T>(): any {
