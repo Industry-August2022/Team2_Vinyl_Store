@@ -2,10 +2,10 @@ import { OrderEntry } from "./order-entry";
 
 export class OrderInfo {
     constructor(
-        public cartId: number,
+        public orderInfoId: number,
         public customerId: number,
         public datePlaced: string,
-        public cartContents: OrderEntry[]
+        public orderEntries: OrderEntry[]
     ) {
 
     }

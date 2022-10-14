@@ -23,3 +23,9 @@
     box-shadow: 10px -3px 20px #5e7e8b;
     border-radius: 15px;
 }
+
+footer{
+    
+    bottom: 0px;
+    width: 100%;
+}

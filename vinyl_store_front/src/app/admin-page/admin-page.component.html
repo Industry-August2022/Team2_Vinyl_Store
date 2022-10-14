@@ -38,7 +38,11 @@
                         </ng-template>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" style="padding-right: 100px;">Cart</a>
+                        <a class="nav-link disabled" href="#" style="padding-right: 100px;"
+                        *ngIf="!currentUser; else visibleCart">Cart</a>
+                        <ng-template #visibleCart>
+                          <a class="nav-link" href="#" routerLink="/checkout" routerLinkActive="active" style="padding-right: 100px;">Cart</a>
+                        </ng-template>
                     </li>
                 </ul>
             </div>

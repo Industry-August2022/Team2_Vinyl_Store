@@ -20,11 +20,14 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addCart(cart : Cart) : boolean{
-    this.httpClient.post<Cart>(apiUrl+"cart", cart, this.postHeader)
-      .subscribe(response => {}, (err) => {console.log(err);
-      });
-      return true;
+  addCart(cart : Cart) : Observable<Cart>{
+    return this.httpClient.post<Cart>(apiUrl+"cart", cart, this.postHeader)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError<any>())
+        );
   }
 
   getAllCart(): Observable<Cart[]>{
@@ -50,6 +53,7 @@ export class CartService {
   }
 
   getCartByUserId(userId: number) : Observable<Cart> {
+    console.log("User ID: " + userId);
     return this.httpClient.get<Cart>(apiUrl+"cart/user/" +userId)
       .pipe(
         map(response => {

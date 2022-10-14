@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'shop', component: ShopComponent},
   { path: 'user-profile', component:UserProfileComponent},
-  { path: 'order-confirmation', component:OrderConfirmationComponent},
+  { path: 'order-confirmation/:id', component:OrderConfirmationComponent},
   { path: 'shop/:id', component:ProductPageComponent},
   { path: 'checkout', component:CheckoutPageComponent},
   { path: 'admin-page', component:AdminPageComponent},

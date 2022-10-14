@@ -75,7 +75,7 @@ body {
     box-shadow: 10px -3px 20px #5e7e8b;
 }
 .album-text {
-    width: 62%;
+    width: auto;
     float: left;
     margin-left: 60px;
     margin-top: 1px;
